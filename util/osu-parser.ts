@@ -1,5 +1,6 @@
 // @ts-ignore
-import calculate_sr from './rosu-pp/rosu-pp.js';
+import calculate_sr from '../lib/rosu-pp/rosu-pp.js';
+
 import {
   type OsuFileBeatmapBackground,
   type OsuFileBeatmapBPM,
@@ -83,6 +84,22 @@ class OsuParser {
 
     return resultMap;
   };
+  private static modEnum: { [key: string]: number } = {
+    'NM': 0,
+    'HD': 8,
+    'HR': 16,
+    'DT': 64,
+    'FM': 0,
+    'TB': 0,
+    'RC': 0,
+    'HB': 0,
+    'LN': 0,
+    'SV': 0,
+  };
+
+  public static getModEnumFromModString(mod: string | undefined): number {
+    return OsuParser.modEnum[mod?.toUpperCase() || 'NM'] || 0;
+  }
 
   async parse(addr: string, mods: number = 0): Promise<OsuFileBeatmapInfo | undefined> {
     if (!this.wasmReady) return;
@@ -488,8 +505,6 @@ class OsuParser {
     const regBG = /^0,0,\"?([^,\"]+)\"?(\,(\d+)\,(\d+))?$/;
     for (let line of content.events ?? []) {
       if (line?.[0] === '0' && line?.[1] === '0') {
-        // 修改: 添加类型检查
-        // @ts-ignore
         bg.path = line?.[2]?.match(/^\"(.+)\"$/)?.[1] ?? '';
         bg.xoffset = Number(line?.[3]) || 0;
         bg.yoffset = Number(line?.[4]) || 0;

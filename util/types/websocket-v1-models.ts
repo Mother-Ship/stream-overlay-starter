@@ -1,4 +1,4 @@
-class WebSocketV1 {
+export interface WebSocketV1 {
   settings: {
     showInterface: boolean;
     folders: {

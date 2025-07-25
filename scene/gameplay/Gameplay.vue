@@ -1,125 +1,51 @@
 <script setup lang="ts">
-// // connecting to websocket
-import WebSocketManager from '../../lib/websocket-manager.js';
-
+import {BracketDataManager} from "../../util/bracket-data-manager.ts";
 import {
-  BracketDataManager
-} from "../../util/bracket-data-manager.ts";
-import {
-  getStoredBeatmapById,
-  storeMatchResult
+  getStoredBeatmapById, storeMatchResult
 } from "../../util/localstorage-op.js";
-import {CountUp} from '../../lib/count-up.min.js';
 import OsuParser from '../../util/osu-parser.ts';
 import MapMockManager from '../../util/map-mock-manager.ts';
+import type {WebSocketV1} from '../../util/types/websocket-v1-models';
+
+// @ts-ignore
+import {CountUp} from '../../lib/count-up.min.js';
+// @ts-ignore
 import {__wbg_init} from '../../lib/rosu-pp/rosu-pp.js';
-import {ref, reactive, onMounted, watch, computed} from 'vue';
+// @ts-ignore
+import WebSocketManager from '../../lib/websocket-manager.js';
 
-// 如果为true，则使用mock_playing代替tosu传回的数据，但tosu和osu(可以不是比赛端)仍然需要运行，因为需要访问.osu和背景图片
-const isDebug = false;
+import {ref, reactive, onMounted, watch, computed, nextTick} from 'vue';
 
-//从URL query获取mode参数
+// 从URL query获取mode参数
 const urlParams = new URLSearchParams(window.location.search);
 const mode = urlParams.get('mode') || 'std';
 
-await __wbg_init('../../lib/rosu-pp/rosu_pp_bg.wasm');
-const p = new OsuParser();
+// 响应式状态定义
+const gameState = ref(0); // IPC状态
+const isRecordingNotificationVisible = ref(false);
+const isRecordingAckButtonVisible = ref(false);
 
-const mock = new MapMockManager(mode);
-await mock.init();
-
-const socket = new WebSocketManager('127.0.0.1:24050');
-
-
-
-const teamAScore = new CountUp('team-a-score', 0, {duration: 0.5, useGrouping: true});
-const teamBScore = new CountUp('team-b-score', 0, {duration: 0.5, useGrouping: true});
-const mapAr = new CountUp('map-ar', 0, {
-    duration: 0.5,
-    decimalPlaces: 1
-  }),
-  mapOd = new CountUp('map-od', 0, {
-    duration: 0.5,
-    decimalPlaces: 1
-  }),
-  mapCs = new CountUp('map-cs', 0, {
-    duration: 0.5,
-    decimalPlaces: 1
-  }),
-  mapHp = new CountUp('map-hp', 0, {
-    duration: 0.5,
-    decimalPlaces: 1
-  }),
-  mapBpm = new CountUp('map-bpm', 0, {
-    duration: 0.5,
-  }),
-  mapStar = new CountUp('map-star', 0, {
-    duration: 0.5,
-    decimalPlaces: 2,
-    suffix: '*',
-  }),
-  mapLengthMinutes = new CountUp('map-length-minutes', 0, {
-    duration: 0.5,
-    formattingFn: x => x.toString().padStart(2, "0"),
-  }),
-  mapLengthSeconds = new CountUp('map-length-seconds', 0, {
-    duration: 0.5,
-    formattingFn: x => x.toString().padStart(2, "0"),
-  }),
-  teamAScoreLead = new CountUp('team-a-score-lead', 0, {duration: 0.5, useGrouping: true}),
-  teamBScoreLead = new CountUp('team-b-score-lead', 0, {duration: 0.5, useGrouping: true});
-
-
-const cache = {
-  state: 0,
-  stateTimer: null,
-
-  leftTeamName: "",
-  rightTeamName: "",
-
-  leftScore: 0,
-  rightScore: 0,
-
-  bestOF: 0,
-
-  leftStar: 0,
-  rightStar: 0,
-
-  chat: [],
-  md5: "",
-  mapChoosed: false,
-};
-// 响应式状态
-const teamAScoreValue = ref(0);
-const teamBScoreValue = ref(0);
-const mapArValue = ref(0);
-const mapOdValue = ref(0);
-const mapCsValue = ref(0);
-const mapHpValue = ref(0);
-const mapBpmValue = ref(0);
-const mapStarValue = ref(0);
-const mapLengthMinutesValue = ref(0);
-const mapLengthSecondsValue = ref(0);
-const teamAScoreLeadValue = ref(0);
-const teamBScoreLeadValue = ref(0);
-
-// 团队信息
+// 队伍信息
 const teamA = reactive({
   name: "",
+  fullName: "",
   avatar: "",
   score: 0,
   star: 0,
   scoreBarWidth: 1920,
-  scoreLeadVisible: false
+  scoreLeadVisible: false,
+  scoreLeadValue: 0
 });
 
 const teamB = reactive({
   name: "",
+  fullName: "",
   avatar: "",
   score: 0,
   star: 0,
   scoreBarWidth: 1920,
-  scoreLeadVisible: false
+  scoreLeadVisible: false,
+  scoreLeadValue: 0
 });
 
 // 地图信息
@@ -128,91 +54,398 @@ const mapInfo = reactive({
   diff: "",
   mapper: "",
   cover: "",
-  ar: 0,
-  od: 0,
-  cs: 0,
-  hp: 0,
-  bpm: 0,
-  star: 0,
-  lengthMinutes: 0,
-  lengthSeconds: 0,
-  picker: ""
+  picker: "",
+  needsScrolling: false
 });
 
-// 控制面板状态
-const matchRound = ref("");
-const isChatVisible = ref(false);
-const isRecordingNotificationVisible = ref(false);
-const isRecordingAckButtonVisible = ref(false);
+// 比赛设置
+const matchSettings = reactive({
+  round: "",
+  bestOf: 0,
+  maxStars: 0
+});
 
-function initPage() {
-  document.addEventListener('selectstart', function (e) {
-    e.preventDefault();
-  })
+// 聊天系统
+const chat = reactive({
+  visible: false,
+  messages: [] as Array<{
+    time: string;
+    name: string;
+    messageBody: string;
+    team: 'left' | 'right' | 'bot' | 'unknown';
+  }>
+});
 
-  let currentMatchRound = localStorage.getItem('currentMatchRound' + mode);
-  if (currentMatchRound !== null) {
-    matchRound.value = currentMatchRound;
+// 比赛轮次按钮状态
+const roundButtons = reactive({
+  'button-match-16': {active: false, text: 'RO16', roundText: 'Round of 16'},
+  'button-match-qf': {active: false, text: 'QuaterFinal', roundText: 'QuarterFinals'},
+  'button-match-sf': {active: false, text: 'SemiFinal', roundText: 'SemiFinals'},
+  'button-match-3rd': {active: false, text: '3rd Place', roundText: '3rd Place'},
+  'button-match-f': {active: false, text: 'Final', roundText: 'Final'}
+});
+
+// CountUp实例（用于数字动画）
+let countUpInstances: { [key: string]: any } = {};
+
+// 缓存状态（用于比较变化）
+const cache = reactive({
+  state: 0,
+  stateTimer: null as any,
+  leftTeamName: "",
+  rightTeamName: "",
+  leftScore: 0,
+  rightScore: 0,
+  bestOF: 0,
+  leftStar: 0,
+  rightStar: 0,
+  chatLength: 0,
+  md5: "",
+  mapChosen: false,
+});
+
+// 计算属性
+const teamAStars = computed(() => {
+  const stars = [];
+  for (let i = 0; i < matchSettings.maxStars; i++) {
+    stars.push({
+      filled: i < teamA.star,
+      class: i < teamA.star ? 'team-a-star' : 'team-a-star-slot'
+    });
   }
+  return stars;
+});
 
-  // obs-browser feature checks
-  if (window.obsstudio) {
-    console.log('OBS Browser Source detected, version:', window.obsstudio.pluginVersion);
-    console.log('Feature checks..');
-    window.obsstudio.getControlLevel(function (level) {
-      console.log(`OBS browser control level: ${level}`);
+const teamBStars = computed(() => {
+  const stars = [];
+  for (let i = 0; i < matchSettings.maxStars; i++) {
+    stars.push({
+      filled: (matchSettings.maxStars - i - 1) < teamB.star,
+      class: (matchSettings.maxStars - i - 1) < teamB.star ? 'team-b-star' : 'team-b-star-slot'
+    });
+  }
+  return stars;
+});
 
-      if (level < 1) {
-        // READ_OBS not available
-        console.log('READ_OBS not available');
-        isRecordingAckButtonVisible.value = true;
+const chatMessagesHtml = computed(() => {
+  return chat.messages.map(item => {
+    const teamClass = {
+      'left': 'player-a-name-chat',
+      'right': 'player-b-name-chat',
+      'bot': 'unknown-chat',
+      'unknown': 'unknown-chat'
+    }[item.team];
+
+    return
+    `<p>
+<span class="time chat-item">${item.time}&nbsp;</span>
+<span class="${teamClass} chat-item">${item.name}:&nbsp;</span>
+<span class="chat-item">${item.messageBody}</span>
+</p>`;
+  }).join('');
+});
+
+// 全局工具对象
+let osuParser: any = null;
+let mapMockManager: any = null;
+let bracketManager: any = null;
+
+onMounted(async () => {
+
+  // 初始化CountUp实例
+  initCountUpInstances();
+
+  // 禁用上下文菜单和文本选择
+  setupPreventHandlers();
+
+  // 初始化解析器和mock管理器
+  await initializeParsers();
+
+  // 从localStorage恢复比赛轮次
+  restoreMatchRound();
+
+  // OBS录制检查
+  checkObsRecording();
+
+  // 启动WebSocket连接
+  await startWebSocketConnection();
+});
+
+// 监听器
+watch(() => gameState.value, (newState) => {
+  handleIpcStateChange(newState);
+});
+
+watch(() => mapInfo.title, async () => {
+  await nextTick();
+  checkTitleScrolling();
+});
+
+watch(() => matchSettings.bestOf, (newBestOf) => {
+  if (newBestOf > 0) {
+    matchSettings.maxStars = Math.floor(newBestOf / 2) + 1;
+  }
+});
+
+watch(() => chat.messages, () => {
+  nextTick(() => {
+    scrollChatToBottom();
+  });
+});
+
+// 初始化函数
+function initCountUpInstances() {
+  countUpInstances = {
+    teamAScore: new CountUp('team-a-score', 0, {duration: 0.5, useGrouping: true}),
+    teamBScore: new CountUp('team-b-score', 0, {duration: 0.5, useGrouping: true}),
+    mapAr: new CountUp('map-ar', 0, {duration: 0.5, decimalPlaces: 1}),
+    mapOd: new CountUp('map-od', 0, {duration: 0.5, decimalPlaces: 1}),
+    mapCs: new CountUp('map-cs', 0, {duration: 0.5, decimalPlaces: 1}),
+    mapHp: new CountUp('map-hp', 0, {duration: 0.5, decimalPlaces: 1}),
+    mapBpm: new CountUp('map-bpm', 0, {duration: 0.5}),
+    mapStar: new CountUp('map-star', 0, {duration: 0.5, decimalPlaces: 2, suffix: '*'}),
+    teamAScoreLead: new CountUp('team-a-score-lead', 0, {duration: 0.5, useGrouping: true}),
+    teamBScoreLead: new CountUp('team-b-score-lead', 0, {duration: 0.5, useGrouping: true})
+  };
+}
+
+function setupPreventHandlers() {
+  const preventHandler = (event: Event) => {
+    event.preventDefault();
+  };
+  document.addEventListener('contextmenu', preventHandler);
+  document.addEventListener('selectstart', preventHandler);
+}
+
+async function initializeParsers() {
+  await __wbg_init('../../lib/rosu-pp/rosu_pp_bg.wasm');
+  osuParser = new OsuParser();
+
+  mapMockManager = MapMockManager.getInstance(mode);
+  await mapMockManager.init();
+  bracketManager = BracketDataManager.getInstance(mode);
+  await bracketManager.init();
+}
+
+function restoreMatchRound() {
+  const currentMatchRound = localStorage.getItem('currentMatchRound' + mode);
+  if (currentMatchRound) {
+    matchSettings.round = currentMatchRound;
+    // 激活对应按钮
+    Object.entries(roundButtons).forEach(([key, button]) => {
+      if (button.roundText === currentMatchRound) {
+        button.active = true;
       } else {
-        // We can read status, so show notification only when not recording
-        isRecordingNotificationVisible.value = true;
-        window.obsstudio.getStatus(function (status) {
-          if (status.recording) {
-            isRecordingAckButtonVisible.value = false;
-          }
-
-          window.addEventListener('obsRecordingStarted', () => {
-            isRecordingAckButtonVisible.value = false;
-          });
-          window.addEventListener('obsRecordingStopped', () => {
-            isRecordingAckButtonVisible.value = true;
-          });
-        })
+        button.active = false;
       }
     });
-  } else {
-    console.log('Not OBS Browser or OBS control features not supported');
-    isRecordingAckButtonVisible.value = true;
   }
 }
 
-onMounted(() => {
-  initPage();
-});
+async function startWebSocketConnection() {
+  if (import.meta.env.VITE_TOSU_DATA_MOCK === 'true') {
+    const {menu, tourney} = await import(
+      /* @vite-ignore */
+    '../../debug/ws-mock/mock-playing-' + mode + '.js'
+      );
+    await handleWebSocket(menu, tourney);
+  } else {
+    const socket = new WebSocketManager('127.0.0.1:24050');
+    socket.api_v1(async ({menu, tourney}: WebSocketV1) => {
+      await handleWebSocket(menu, tourney);
+    });
+  }
+}
 
+// 核心处理函数
+async function handleWebSocket(menu: any, tourney: any) {
+  try {
+    await updateMapInfo(menu);
+    await updateTeamInfo(tourney);
+    updatePickerInfo(menu.bm.id);
+    updateChat(tourney.manager.chat);
+    updateGameState(tourney.manager.ipcState || 0);
+    updateScores(tourney);
+    updateStars(tourney);
+    storeMatchResultIfNeed(tourney, menu.bm.id);
+  } catch (error) {
+    console.error('WebSocket处理错误:', error);
+  }
+}
 
-function handleIpcStateChange(state) {
-  // tosu IPC states:
-// 1: Idle
-// 2: ?
-// 3: Playing
-// 4: Ranking
+async function updateMapInfo(menu: any) {
+  const md5 = menu.bm.md5;
+  if (md5 !== cache.md5) {
+    cache.md5 = md5;
+    cache.mapChosen = false;
+    mapInfo.picker = "";
+
+    // 更新封面
+    mapInfo.cover = `http://localhost:24050/Songs/${encodeURIComponent(menu.bm.path.folder)}/${encodeURIComponent(menu.bm.path.bg)}`;
+
+    // 解析beatmap
+    const parsed = await osuParser.parse(`http://localhost:24050/Songs/${encodeURIComponent(menu.bm.path.folder)}/${encodeURIComponent(menu.bm.path.file)}`);
+
+    const modNameAndIndex = await bracketManager.getModNameAndIndexById(parsed.metadata.bid, mode);
+    parsed.mod = modNameAndIndex.modName;
+    parsed.index = modNameAndIndex.index;
+
+    const mods = OsuParser.getModEnumFromModString(parsed.mod);
+    parsed.modded = osuParser.getModded(parsed, mods);
+
+    // 更新地图信息
+    mapInfo.title = `${parsed.modded.metadata.artist} - ${parsed.modded.metadata.title}`;
+    mapInfo.diff = parsed.modded.metadata.diff;
+    mapInfo.mapper = parsed.modded.metadata.creator;
+
+    // 更新数值（使用CountUp动画）
+    countUpInstances.mapAr.update(parseFloat(parsed.modded.difficulty.ar).toFixed(1));
+    countUpInstances.mapCs.update(parseFloat(parsed.modded.difficulty.cs).toFixed(1));
+    countUpInstances.mapOd.update(parseFloat(parsed.modded.difficulty.od).toFixed(1));
+    countUpInstances.mapHp.update(parseFloat(parsed.modded.difficulty.hp).toFixed(1));
+    countUpInstances.mapBpm.update(parsed.modded.beatmap.bpm.mostly);
+    countUpInstances.mapStar.update(parseFloat(parsed.modded.difficulty.sr).toFixed(2));
+  }
+}
+
+async function updateTeamInfo(tourney: any) {
+  const leftTeamName = tourney.manager.teamName.left;
+  const rightTeamName = tourney.manager.teamName.right;
+
+  if (leftTeamName !== cache.leftTeamName) {
+    cache.leftTeamName = leftTeamName;
+    teamA.name = leftTeamName;
+
+    try {
+      const leftTeam = await bracketManager.getTeamFullInfoByName(leftTeamName);
+      teamA.fullName = leftTeam.FullName;
+      teamA.avatar = `https://a.ppy.sh/${leftTeam.Acronym}?.jpeg`;
+    } catch (error) {
+      console.error('获取左队信息失败:', error);
+    }
+  }
+
+  if (rightTeamName !== cache.rightTeamName) {
+    cache.rightTeamName = rightTeamName;
+    teamB.name = rightTeamName;
+
+    try {
+      const rightTeam = await bracketManager.getTeamFullInfoByName(rightTeamName);
+      teamB.fullName = rightTeam.FullName;
+      teamB.avatar = `https://a.ppy.sh/${rightTeam.Acronym}?.jpeg`;
+    } catch (error) {
+      console.error('获取右队信息失败:', error);
+    }
+  }
+}
+
+function updatePickerInfo(bid: number) {
+  const operation = getStoredBeatmapById(bid.toString(), mode);
+
+  if (operation !== null && !cache.mapChosen) {
+    cache.mapChosen = true;
+
+    bracketManager.getModNameAndIndexById(bid).then(modNameAndIndex => {
+      if (operation.type === "Pick") {
+        const teamName = operation.team === "left" ? cache.leftTeamName : cache.rightTeamName;
+        mapInfo.picker = `${modNameAndIndex.modName}${modNameAndIndex.index} picked by ${teamName}`;
+      }
+    });
+  }
+}
+
+function updateChat(newChat: any[]) {
+  if (newChat.length !== cache.chatLength) {
+    cache.chatLength = newChat.length;
+    chat.messages = [...newChat];
+  }
+}
+
+function updateGameState(newState: number) {
+  gameState.value = newState;
+}
+
+function updateScores(tourney: any) {
+  const leftClients = tourney.ipcClients.filter((client: any) => client.team === 'left');
+  const rightClients = tourney.ipcClients.filter((client: any) => client.team === 'right');
+
+  const leftScore = leftClients.reduce((acc: number, client: any) => acc + client.gameplay.score, 0);
+  const rightScore = rightClients.reduce((acc: number, client: any) => acc + client.gameplay.score, 0);
+
+  if (leftScore !== cache.leftScore || rightScore !== cache.rightScore) {
+    cache.leftScore = leftScore;
+    cache.rightScore = rightScore;
+
+    teamA.score = leftScore;
+    teamB.score = rightScore;
+
+    // 计算分数条宽度
+    const scoreDiff = Math.abs(leftScore - rightScore);
+    const X = Math.min(0.4, Math.pow(scoreDiff / 1500000, 0.5) / 2);
+    const Y = 2.5 * X;
+    const shortBarWidth = 1920 - (1920 - 615) * Y;
+
+    if (leftScore === rightScore) {
+      teamA.scoreBarWidth = 1920;
+      teamB.scoreBarWidth = 1920;
+      teamA.scoreLeadVisible = false;
+      teamB.scoreLeadVisible = false;
+    } else if (leftScore > rightScore) {
+      teamA.scoreBarWidth = 3840 - shortBarWidth;
+      teamB.scoreBarWidth = shortBarWidth;
+      teamA.scoreLeadVisible = true;
+      teamB.scoreLeadVisible = false;
+      teamA.scoreLeadValue = scoreDiff;
+    } else {
+      teamB.scoreBarWidth = 3840 - shortBarWidth;
+      teamA.scoreBarWidth = shortBarWidth;
+      teamA.scoreLeadVisible = false;
+      teamB.scoreLeadVisible = true;
+      teamB.scoreLeadValue = scoreDiff;
+    }
+
+    // 更新CountUp动画
+    countUpInstances.teamAScore.update(leftScore);
+    countUpInstances.teamBScore.update(rightScore);
+    countUpInstances.teamAScoreLead.update(scoreDiff);
+    countUpInstances.teamBScoreLead.update(scoreDiff);
+  }
+}
+
+function updateStars(tourney: any) {
+  const bestOf = tourney.manager.bestOF;
+  const leftStar = tourney.manager.stars.left;
+  const rightStar = tourney.manager.stars.right;
+
+  if (bestOf !== cache.bestOF) {
+    cache.bestOF = bestOf;
+    matchSettings.bestOf = bestOf;
+  }
+
+  if (leftStar !== cache.leftStar) {
+    cache.leftStar = leftStar;
+    teamA.star = leftStar;
+  }
+
+  if (rightStar !== cache.rightStar) {
+    cache.rightStar = rightStar;
+    teamB.star = rightStar;
+  }
+}
+
+// 辅助函数
+function handleIpcStateChange(state: number) {
   if (state === cache.state) return;
   cache.state = state;
+
   switch (state) {
-    case 1:
-      // Enter idle state, show chat
+    case 1: // Idle
       toggleChat(true);
       break;
-    case 3:
-      // Enter playing state, hide chat
+    case 3: // Playing
       toggleChat(false);
       break;
-    case 4:
-      // Enter ranking state, show chat after 10s, similar to how Lazer works
+    case 4: // Ranking
       if (cache.stateTimer) clearTimeout(cache.stateTimer);
       cache.stateTimer = setTimeout(() => {
         toggleChat(true);
@@ -221,380 +454,101 @@ function handleIpcStateChange(state) {
   }
 }
 
-function toggleChat(enable) {
-  isChatVisible.value = enable;
+function toggleChat(enable: boolean) {
+  chat.visible = enable;
 }
 
+function checkTitleScrolling() {
+  const titleElement = document.getElementById('map-title');
+  const containerElement = document.getElementById('map-title-scrolling-content');
 
-
-document.getElementById('button-chat-toggle').addEventListener('click', () => {
-  toggleChat(!document.getElementById('chat').style.opacity || document.getElementById('chat').style.opacity === "0");
-});
-
-document.getElementById('button-record-ack').addEventListener('click', () => {
-  document.getElementById('notify-record').style.display = 'none';
-  document.getElementById('button-record-ack').style.display = 'none';
-})
-
-// 添加标题滚动检测函数
-function setupTitleScrolling() {
-  document.getElementById('map-title').classList.remove('marquee');
-
-  // 如果#map-title的宽度超过#map-title-scroll-container的宽度
-  if (document.getElementById('map-title').offsetWidth >
-    document.getElementById('map-title-scrolling-content').clientWidth) {
-    document.getElementById('map-title').classList.add('marquee');
-    console.log('start scroll')
+  if (titleElement && containerElement) {
+    mapInfo.needsScrolling = titleElement.offsetWidth > containerElement.clientWidth;
   }
 }
 
-function storeMatchResultIfNeed(tourney, bid) {
-  if (cache.state === 4) {
+function scrollChatToBottom() {
+  const chatContent = document.getElementById("chat-content");
+  if (chatContent) {
+    chatContent.scrollTop = chatContent.scrollHeight;
+  }
+}
 
-    const leftClients = tourney.ipcClients.filter(client => client.team === 'left');
-    const rightClients = tourney.ipcClients.filter(client => client.team === 'right');
+function checkObsRecording() {
+  // @ts-ignore
+  if (window.obsstudio) {
+    console.log('OBS Browser Source detected, version:', (window as any).obsstudio.pluginVersion);
+    (window as any).obsstudio.getControlLevel((level: number) => {
+      if (level < 1) {
+        isRecordingAckButtonVisible.value = true;
+      } else {
+        isRecordingNotificationVisible.value = true;
+        (window as any).obsstudio.getStatus((status: any) => {
+          isRecordingAckButtonVisible.value = !status.recording;
+
+          window.addEventListener('obsRecordingStarted', () => {
+            isRecordingAckButtonVisible.value = false;
+          });
+          window.addEventListener('obsRecordingStopped', () => {
+            isRecordingAckButtonVisible.value = true;
+          });
+        });
+      }
+    });
+  } else {
+    isRecordingAckButtonVisible.value = true;
+  }
+}
+
+function storeMatchResultIfNeed(tourney: any, bid: number) {
+  if (cache.state === 4) {
+    const leftClients = tourney.ipcClients.filter((client: any) => client.team === 'left');
+    const rightClients = tourney.ipcClients.filter((client: any) => client.team === 'right');
 
     const scores = {
       left: {
-        score: (leftClients.map(client => client.gameplay.score)).reduce((acc, score) => acc + score, 0),
-        accuracy: (leftClients.map(client => client.gameplay.accuracy)).reduce((acc, accuracy) => acc + accuracy, 0),
+        score: leftClients.reduce((acc: number, client: any) => acc + client.gameplay.score, 0),
+        accuracy: leftClients.reduce((acc: number, client: any) => acc + client.gameplay.accuracy, 0),
       },
       right: {
-        score: (rightClients.map(client => client.gameplay.score)).reduce((acc, score) => acc + score, 0),
-        accuracy: (rightClients.map(client => client.gameplay.accuracy)).reduce((acc, accuracy) => acc + accuracy, 0),
+        score: rightClients.reduce((acc: number, client: any) => acc + client.gameplay.score, 0),
+        accuracy: rightClients.reduce((acc: number, client: any) => acc + client.gameplay.accuracy, 0),
       },
       beatmapId: bid,
-    }
+    };
 
     storeMatchResult(scores, mode);
   }
 }
 
-async function handleWebSocket(menu, tourney) {
-  try {
-    // 歌曲信息
-    var md5 = menu.bm.md5;
-    if (md5 !== cache.md5) {
-      mapInfo.cover = "http://localhost:24050/Songs/" + encodeURIComponent(menu.bm.path.folder) + "/" + encodeURIComponent(menu.bm.path.bg);
-      cache.md5 = md5;
-
-      cache.mapChoosed = false;
-      mapInfo.picker = "";
-
-      let parsed = await p.parse(`http://${location.host}/Songs/${encodeURIComponent(menu.bm.path.folder)}/${encodeURIComponent(menu.bm.path.file)}`);
-
-      let modNameAndIndex = await getModNameAndIndexById(parsed.metadata.bid, mode);
-      parsed.mod = modNameAndIndex.modName;
-      parsed.index = modNameAndIndex.index;
-
-      let mods = getModEnumFromModString(parsed.mod);
-      parsed.modded = p.getModded(parsed, mods);
-
-      mapInfo.title = parsed.modded.metadata.artist + " - " + parsed.modded.metadata.title;
-
-
-      setupTitleScrolling();
-
-      mapInfo.diff = parsed.modded.metadata.diff;
-      mapInfo.mapper = parsed.modded.metadata.creator;
-
-      mapAr.update(parseFloat(parsed.modded.difficulty.ar).toFixed(1));
-      mapCs.update(parseFloat(parsed.modded.difficulty.cs).toFixed(1));
-      mapOd.update(parseFloat(parsed.modded.difficulty.od).toFixed(1));
-      mapHp.update(parseFloat(parsed.modded.difficulty.hp).toFixed(1));
-
-      mapLengthMinutes.update(Math.trunc(parsed.modded.beatmap.length / 60000));
-      mapLengthSeconds.update(Math.trunc(parsed.modded.beatmap.length % 60000 / 1000));
-
-      mapBpm.update(parsed.modded.beatmap.bpm.mostly);
-      mapStar.update(parsed.modded.difficulty.sr.toFixed(2));
-    }
-
-
-    // 双边队名 旗帜
-    const leftTeamName = tourney.manager.teamName.left;
-    if (leftTeamName !== cache.leftTeamName) {
-      cache.leftTeamName = leftTeamName;
-      getTeamFullInfoByName(leftTeamName, mode).then(
-        (leftTeam) => {
-          // 设置队伍头像、名称
-          document.getElementById("team-a-name").innerText = leftTeam.FullName;
-          setLeftTeamAvatar(leftTeam.Acronym);
-        }
-      )
-    }
-    const rightTeamName = tourney.manager.teamName.right;
-    if (rightTeamName !== cache.rightTeamName) {
-      cache.rightTeamName = rightTeamName;
-      getTeamFullInfoByName(rightTeamName, mode).then(
-        (rightTeam) => {
-          document.getElementById("team-b-name").innerText = rightTeam.FullName;
-          setRightTeamAvatar(rightTeam.Acronym);
-        }
-      )
-    }
-
-    // 选图信息
-    var bid = menu.bm.id;
-
-
-    let operation = getStoredBeatmapById(bid.toString(), mode);
-
-    if (operation !== null) {
-      cache.mapChoosed = true;
-      let modNameAndIndex = await getModNameAndIndexById(bid, mode);
-
-      if (operation.type === "Pick") {
-        if (operation.team === "left") {
-          mapInfo.picker = modNameAndIndex.modName + String(modNameAndIndex.index) + " picked by " + cache.leftTeamName;
-
-        }
-        if (operation.team === "right") {
-          mapInfo.picker = modNameAndIndex.modName + String(modNameAndIndex.index) + " picked by " + cache.rightTeamName;
-        }
-      }
-
-
-      // 聊天
-      const chat = tourney.manager.chat;
-      if (chat.length !== cache.chat.length) {
-        cache.chat = chat;
-        const chatHtml = chat.map(item => {
-          switch (item.team) {
-            case 'left':
-              return `<p><span class="time chat-item">${item.time}&nbsp;</span> <span class="player-a-name-chat chat-item">${item.name}:&nbsp;</span><span class="chat-item">${item.messageBody}</span></p>`
-            case 'right':
-              return `<p><span class="time chat-item">${item.time}&nbsp;</span> <span class="player-b-name-chat chat-item">${item.name}:&nbsp;</span><span class="chat-item">${item.messageBody}</span></p>`
-            case 'bot':
-            case 'unknown':
-              return `<p><span class="time chat-item">${item.time}&nbsp;</span> <span class="unknown-chat chat-item">${item.name}:&nbsp;</span><span class="chat-item">${item.messageBody}</span></p>`
-
-          }
-        }).join('');
-        document.getElementById("chat-content").innerHTML = chatHtml;
-        var element = document.getElementById("chat-content");
-        element.scrollTop = element.scrollHeight;
-      }
-      handleIpcStateChange(tourney.manager.ipcState || 0);
-
-      // 双边分数
-      setScoreBars(tourney);
-
-      storeMatchResultIfNeed(tourney, bid);
-
-      // 双边星星槽位
-      const bestOF = tourney.manager.bestOF;
-      if (bestOF !== cache.bestOF) {
-
-        cache.bestOF = bestOF;
-        const max = bestOF / 2 + 1;
-        // 清空原有星星
-        document.getElementById("team-a-star-container").innerHTML = "";
-
-        for (let i = 0; i < max; i++) {
-          const star = document.createElement("div");
-          star.className = "team-a-star-slot";
-          document.getElementById("team-a-star-container").appendChild(star);
-        }
-
-        // 清空原有星星
-        document.getElementById("team-b-star-container").innerHTML = "";
-
-        for (let i = 0; i < max; i++) {
-          const star = document.createElement("div");
-          star.className = "team-b-star-slot";
-          document.getElementById("team-b-star-container").appendChild(star);
-        }
-      }
-
-      // 双边星星
-      const leftStar = tourney.manager.stars.left
-      if (leftStar !== cache.leftStar) {
-        cache.leftStar = leftStar;
-
-
-        const max = cache.bestOF / 2 + 1
-        for (let i = 0; i < max; i++) {
-          document.getElementById("team-a-star-container").children[i].className = "team-a-star-slot";
-        }
-        for (let i = 0; i < leftStar; i++) {
-          const childElement = document.getElementById("team-a-star-container").children[i];
-          childElement.className = "team-a-star";
-        }
-
-      }
-      const rightStar = tourney.manager.stars.right
-      if (rightStar !== cache.rightStar) {
-        cache.rightStar = rightStar;
-
-        const max = cache.bestOF / 2 + 1
-
-        for (let i = 0; i < max; i++) {
-          document.getElementById("team-b-star-container").children[i].className = "team-b-star-slot";
-        }
-        // 从右到左替换样式
-        for (let i = 0; i < rightStar; i++) {
-          const childElement = document.getElementById("team-b-star-container").children[max - i - 1];
-          childElement.className = "team-b-star";
-        }
-      }
-
-
-    }
-  } catch
-    (error) {
-    console.log(error);
-  }
-}
-
-
-if (isDebug) {
-  handleWebSocket(menu, tourney);
-} else {
-  socket.api_v1(async ({menu, tourney}) => {
-    await handleWebSocket(menu, tourney);
+// 事件处理器
+function handleRoundButtonClick(buttonId: keyof typeof roundButtons) {
+  // 重置所有按钮状态
+  Object.keys(roundButtons).forEach(key => {
+    roundButtons[key as keyof typeof roundButtons].active = false;
   });
+
+  // 激活选中的按钮
+  roundButtons[buttonId].active = true;
+  matchSettings.round = roundButtons[buttonId].roundText;
+
+  // 保存到localStorage
+  localStorage.setItem('currentMatchRound' + mode, matchSettings.round);
 }
 
-function setLeftTeamAvatar(acronym) {
-  const basePath = "https://a.ppy.sh/" + acronym + "?.jpeg";
-  const imgElement = document.getElementById("team-a-avatar");
-  imgElement.src = basePath;
+function handleChatToggle() {
+  toggleChat(!chat.visible);
 }
 
-function setRightTeamAvatar(acronym) {
-  var basePath = "https://a.ppy.sh/" + acronym + "?.jpeg";
-  var imgElement = document.getElementById("team-b-avatar");
-  imgElement.src = basePath;
+function handleRecordAck() {
+  isRecordingNotificationVisible.value = false;
+  isRecordingAckButtonVisible.value = false;
 }
-
-// 控制台逻辑
-
-// 点击button-match-qf和button-match-gf时，点亮自身，熄灭round-control-buttons内其他按钮，修改match-round的文本为按钮文本
-const matchRound = document.getElementById("match-round");
-
-function storeMatchRound() {
-  localStorage.setItem('currentMatchRound' + mode, matchRound.innerText);
-}
-
-function activateButton(buttonId) {
-  document.getElementById(buttonId).classList.remove("button-inactive", "button-active");
-  document.getElementById(buttonId).classList.add("button-active");
-}
-
-function deactivateButtons(...buttonIds) {
-  buttonIds.forEach(buttonId => {
-    document.getElementById(buttonId).classList.remove("button-inactive", "button-active");
-    document.getElementById(buttonId).classList.add("button-inactive");
-  });
-}
-
-function handleButtonClick(buttonId, roundText, buttonsToDeactivate) {
-  matchRound.innerText = roundText;
-  activateButton(buttonId);
-  deactivateButtons(...buttonsToDeactivate);
-  storeMatchRound();
-}
-
-document.getElementById("button-match-16").addEventListener("click", () => {
-  handleButtonClick("button-match-16", "Round of 16",
-    ["button-match-qf", "button-match-sf", "button-match-f"]);
-});
-
-document.getElementById("button-match-qf").addEventListener("click", () => {
-  handleButtonClick("button-match-qf", "QuarterFinals",
-    ["button-match-16", "button-match-sf", "button-match-f"]);
-});
-
-document.getElementById("button-match-sf").addEventListener("click", () => {
-  handleButtonClick("button-match-sf", "SemiFinals",
-    ["button-match-16", "button-match-qf", "button-match-f"]);
-});
-
-document.getElementById("button-match-3rd").addEventListener("click", () => {
-  handleButtonClick("button-match-3rd", "3rd Place",
-    ["button-match-16", "button-match-qf", "button-match-sf", "button-match-f"]);
-});
-
-document.getElementById("button-match-f").addEventListener("click", () => {
-  handleButtonClick("button-match-f", "Final",
-    ["button-match-16", "button-match-qf", "button-match-sf", "button-match-3rd"]);
-});
-
-
-document.addEventListener('contextmenu', function (event) {
-  event.preventDefault();
-})
-
-function setScoreBars(tourney) {
-  const scores = {
-    left: {
-      score: 0,
-    },
-    right: {
-      score: 0,
-    },
-    bar: -1,
-  }
-
-  const leftClients = tourney.ipcClients.filter(client => client.team === 'left');
-  const rightClients = tourney.ipcClients.filter(client => client.team === 'right');
-  let scoreDiff = 0;
-
-
-  scores.left.score = (leftClients.map(client => client.gameplay.score)).reduce((acc, score) => acc + score, 0);
-  scores.right.score = (rightClients.map(client => client.gameplay.score)).reduce((acc, score) => acc + score, 0);
-  scoreDiff = Math.abs(scores.left.score - scores.right.score);
-  // 随scoreDiff从0增大到100w，X从0先陡再缓慢增大到0.4
-  let X = (Math.min(0.4, Math.pow(scoreDiff / 1500000, 0.5) / 2));
-  // 将X换算到0-1
-  let Y = 2.5 * X;
-  // 根据X计算出短边分数条的长度，从1920缓慢缩减到615
-  scores.bar = 1920 - (1920 - 615) * Y;
-
-  if (scores.left.score !== cache.leftScore || scores.right.score !== cache.rightScore) {
-    cache.leftScore = scores.left.score;
-    cache.rightScore = scores.right.score;
-
-    const leftScore = scores.left.score;
-    const rightScore = scores.right.score;
-    const scoreDiff = Math.abs(leftScore - rightScore);
-
-    // 分数条，狂抄Lazer https://github.com/ppy/osu/blob/master/osu.Game/Screens/Play/HUD/MatchScoreDisplay.cs#L145
-    if (leftScore === rightScore) {
-      document.getElementById('team-a-score-bar').style.width = 1920 + "px";
-      document.getElementById('team-b-score-bar').style.width = 1920 + "px";
-      document.getElementById('team-a-score-lead').style.visibility = 'hidden';
-      document.getElementById('team-b-score-lead').style.visibility = 'hidden';
-    } else if (leftScore > rightScore) {
-      document.getElementById('team-a-score-bar').style.width = (3840 - scores.bar) + "px";
-      document.getElementById('team-b-score-bar').style.width = scores.bar + "px";
-
-      document.getElementById('team-a-score-lead').style.visibility = 'visible';
-      document.getElementById('team-a-score-lead').style.visibility = 'visible';
-
-      document.getElementById('team-b-score-lead').style.visibility = 'hidden';
-    } else {
-      document.getElementById('team-b-score-bar').style.width = (3840 - scores.bar) + "px";
-      document.getElementById('team-a-score-bar').style.width = scores.bar + "px";
-
-      document.getElementById('team-a-score-lead').style.visibility = 'hidden';
-      document.getElementById('team-b-score-lead').style.visibility = 'visible';
-    }
-
-    // 分数文字
-    teamAScore.update(leftScore);
-    teamBScore.update(rightScore);
-
-    teamAScoreLead.update(scoreDiff);
-    teamBScoreLead.update(scoreDiff);
-  }
-}
-
 </script>
 
 <template>
   <div class="container">
+    <!-- 背景视频 -->
     <div id="background-video">
       <video autoplay muted loop id="bg-video">
         <source src="../../assets/CL_loop_1_compressed.mp4" type="video/mp4">
@@ -602,124 +556,170 @@ function setScoreBars(tourney) {
       </video>
     </div>
 
+    <!-- 比赛标题 -->
     <div id="match-name-container">
       <span id="match-name">CHINA LAN</span>
     </div>
+
+    <!-- 比赛轮次 -->
     <div id="match-round-container">
-      <span id="match-round"></span>
+      <span id="match-round">{{ matchSettings.round }}</span>
     </div>
 
-
+    <!-- 队伍A -->
     <div id="team-a-container">
       <div id="team-a-name-container">
-        <img id="team-a-avatar">
-        <span id=team-a-name></span>
+        <img id="team-a-avatar" :src="teamA.avatar" alt="Team A Avatar">
+        <span id="team-a-name">{{ teamA.fullName }}</span>
       </div>
 
       <div id="team-a-star-container">
-
+        <div
+          v-for="(star, index) in teamAStars"
+          :key="`team-a-star-${index}`"
+          :class="star.class"
+        ></div>
       </div>
 
-      <div id="team-a-score-bar" style="width: 100px;">
-        <span id="team-a-score-lead" style="visibility: hidden"></span>
+      <div
+        id="team-a-score-bar"
+        :style="{ width: teamA.scoreBarWidth + 'px' }"
+      >
+        <span
+          id="team-a-score-lead"
+          :style="{ visibility: teamA.scoreLeadVisible ? 'visible' : 'hidden' }"
+        >{{ teamA.scoreLeadValue.toLocaleString() }}</span>
       </div>
 
-      <span id="team-a-score"></span>
+      <span id="team-a-score">{{ teamA.score.toLocaleString() }}</span>
     </div>
 
+    <!-- 队伍B -->
     <div id="team-b-container">
       <div id="team-b-name-container">
-        <img id="team-b-avatar">
-        <span id=team-b-name></span>
+        <img id="team-b-avatar" :src="teamB.avatar" alt="Team B Avatar">
+        <span id="team-b-name">{{ teamB.fullName }}</span>
       </div>
 
       <div id="team-b-star-container">
-
+        <div
+          v-for="(star, index) in teamBStars"
+          :key="`team-b-star-${index}`"
+          :class="star.class"
+        ></div>
       </div>
 
-      <div id="team-b-score-bar" style="width: 100px;">
-        <span id="team-b-score-lead" style="visibility: hidden"></span>
+      <div
+        id="team-b-score-bar"
+        :style="{ width: teamB.scoreBarWidth + 'px' }"
+      >
+        <span
+          id="team-b-score-lead"
+          :style="{ visibility: teamB.scoreLeadVisible ? 'visible' : 'hidden' }"
+        >{{ teamB.scoreLeadValue.toLocaleString() }}</span>
       </div>
 
-      <span id="team-b-score"></span>
+      <span id="team-b-score">{{ teamB.score.toLocaleString() }}</span>
     </div>
-    <div id="chat">
-      <div id="chat-content">
 
-      </div>
+    <!-- 聊天框 -->
+    <div id="chat" :style="{ opacity: chat.visible ? 1 : 0 }">
+      <div id="chat-content" v-html="chatMessagesHtml"></div>
     </div>
 
+    <!-- 弹幕 -->
     <div id="danmaku">
-      <!--      <iframe id="danmaku-iframe"-->
-      <!--              allowTransparency="true"-->
-      <!--              src="https://vercel.blive.chat/room/BQVLQJXMWFEO8?roomKeyType=2&lang=zh&templateUrl=http%3A%2F%2F127.0.0.1%3A24050%2Fclan2025%2Flib%2Fdanmaku_template%2Fyoutube%2Findex.html"-->
-      <!--      ></iframe>-->
+      <!-- 弹幕iframe可以在这里添加 -->
     </div>
 
-
+    <!-- 地图信息 -->
     <div id="map-info-container">
-      <img id="map-cover">
+      <img id="map-cover" :src="mapInfo.cover" alt="Map Cover">
+
       <div id="map-picker-container">
-        <span id="map-picker"></span>
+        <span id="map-picker">{{ mapInfo.picker }}</span>
       </div>
 
       <div id="map-title-scroll-container" class="scroll-container">
         <div id="map-title-scrolling-content">
-          <p id="map-title" class="map-title"></p>
+          <osu-parser
+            id="map-title"
+            :class="{ 'map-title': true, 'marquee': mapInfo.needsScrolling }"
+          >{{ mapInfo.title }}</osu-parser>
         </div>
       </div>
 
-      <span id="map-diff"></span>
+      <span id="map-diff">{{ mapInfo.diff }}</span>
       <span id="map-mapper-label">mapped by </span>
-      <span id="map-mapper"></span>
-      <div id="map-data-container">
-        <span class="map-data-label">BPM&nbsp;</span><span id="map-bpm"
-                                                           class="map-data-text"></span>
-        <span class="map-data-label">LENGTH&nbsp;</span><span id="map-length-minutes"
-                                                              class="map-data-text"></span><span
-        class="map-data-text">:</span><span id="map-length-seconds" class="map-data-text"></span>
-        <br>
-        <span class="map-data-label">CS&nbsp;</span><span id="map-cs" class="map-data-text"></span>
-        <span class="map-data-label">AR&nbsp;</span><span id="map-ar" class="map-data-text"></span>
-        <span class="map-data-label">OD&nbsp;</span><span id="map-od" class="map-data-text"></span>
-        <span class="map-data-label">SR&nbsp;</span><span id="map-star"
-                                                          class="map-data-text"></span>
-      </div>
+      <span id="map-mapper">{{ mapInfo.mapper }}</span>
 
+      <div id="map-data-container">
+        <span class="map-data-label">BPM&nbsp;</span>
+        <span id="map-bpm" class="map-data-text"></span>
+
+        <span class="map-data-label">LENGTH&nbsp;</span>
+        <span id="map-length-minutes" class="map-data-text"></span>
+        <span class="map-data-text">:</span>
+        <span id="map-length-seconds" class="map-data-text"></span>
+
+        <br>
+        <span class="map-data-label">CS&nbsp;</span>
+        <span id="map-cs" class="map-data-text"></span>
+        <span class="map-data-label">AR&nbsp;</span>
+        <span id="map-ar" class="map-data-text"></span>
+        <span class="map-data-label">OD&nbsp;</span>
+        <span id="map-od" class="map-data-text"></span>
+        <span class="map-data-label">SR&nbsp;</span>
+        <span id="map-star" class="map-data-text"></span>
+      </div>
     </div>
 
+    <!-- 控制面板 -->
     <div class="control-panel">
       <span class="panel-title">Control Panel</span>
       <div class="panel-buttons">
-
         <div class="round-control">
           <div class="panel-label"><span>Pick Match Round</span></div>
-
           <div class="round-control-buttons">
-
-            <button id="button-match-16" class="button-inactive">RO16</button>
-            <button id="button-match-qf" class="button-inactive">QuaterFinal</button>
-
-            <button id="button-match-sf" class="button-inactive">SemiFinal</button>
-            <button id="button-match-3rd" class="button-inactive">3rd Place</button>
-
-            <button id="button-match-f" class="button-inactive">Final</button>
-
-
+            <button
+              v-for="(button, buttonId) in roundButtons"
+              :key="buttonId"
+              :class="button.active ? 'button-active' : 'button-inactive'"
+              @click="handleRoundButtonClick(buttonId as keyof typeof roundButtons)"
+            >
+              {{ button.text }}
+            </button>
           </div>
-
         </div>
 
-        <!-- [TODO] Refactor these to at lease put styles into CSS, or even better, use Flexbox -->
         <div class="chat-control" style="position: absolute; left: 500px; top: 75px; width: 100px;">
           <div class="round-control-buttons">
-            <button id="button-chat-toggle" class="button-active">Toggle Chat</button>
+            <button
+              id="button-chat-toggle"
+              class="button-active"
+              @click="handleChatToggle"
+            >
+              Toggle Chat
+            </button>
           </div>
         </div>
 
         <div class="chat-control" style="position: absolute; left: 650px; top: 40px; width: 500px;">
-          <h1 style="color: white" id="notify-record">DO NOT FORGET START RECORDING!</h1>
-          <button id="button-record-ack" class="button-active" style="display: none">OK</button>
+          <h1
+            v-show="isRecordingNotificationVisible"
+            style="color: white"
+            id="notify-record"
+          >
+            DO NOT FORGET START RECORDING!
+          </h1>
+          <button
+            v-show="isRecordingAckButtonVisible"
+            id="button-record-ack"
+            class="button-active"
+            @click="handleRecordAck"
+          >
+            OK
+          </button>
         </div>
       </div>
     </div>
@@ -757,7 +757,6 @@ function setScoreBars(tourney) {
   src: url('../../assets/fonts/DouyinSansBold.ttf') format('opentype');
 }
 
-
 body {
   margin: 0;
   padding: 0;
@@ -782,7 +781,6 @@ body {
   font-family: "MontserratBlackItalic", sans-serif;
   color: #1D1D1D;
   font-size: 200px;
-  /*8像素用三角函数计算出来之后的结果*/
   filter: drop-shadow(4.93px 6.30px 0px rgba(0, 0, 0, 0.14));
   line-height: 140px;
 }
@@ -800,15 +798,12 @@ body {
   font-family: "MontserratBlackItalic", sans-serif;
   color: #1D1D1D;
   font-size: 108px;
-  /*8像素用三角函数计算出来之后的结果*/
   filter: drop-shadow(4.93px 6.30px 0px rgba(0, 0, 0, 0.14));
   line-height: 108px;
 }
 
-
 #team-a-container {
   position: absolute;
-
   height: 230px;
   width: 1920px;
 }
@@ -828,7 +823,6 @@ body {
   border: solid 7px #AF3232;
 }
 
-
 #team-a-name {
   font-family: "AkiraExpanded", sans-serif;
   font-size: 83px;
@@ -836,9 +830,7 @@ body {
   left: 263px;
   top: 158px;
   color: #AF3232;
-  /* 防止文本换行 */
   white-space: nowrap;
-  /* 隐藏超出容器的内容 */
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -866,11 +858,9 @@ body {
 
 #team-a-score-bar {
   position: absolute;
-
   top: 1755px;
   height: 62px;
   background-color: #AF3232;
-
   transition: width 0.5s;
 }
 
@@ -905,7 +895,6 @@ body {
   top: 50%;
 }
 
-
 #team-b-container {
   position: absolute;
   height: 230px;
@@ -926,7 +915,6 @@ body {
   display: flex;
   gap: 22px;
 }
-
 
 .team-b-star {
   width: 108px;
@@ -958,23 +946,18 @@ body {
   right: 263px;
   top: 158px;
   color: #1D1D1D;
-  /*右对齐*/
   text-align: right;
-  /* 防止文本换行 */
   white-space: nowrap;
-  /* 隐藏超出容器的内容 */
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 #team-b-score-bar {
   position: absolute;
-
   top: 1755px;
   right: 0;
   height: 62px;
   background-color: #1D1D1D;
-
   transition: width 0.5s;
 }
 
@@ -988,7 +971,6 @@ body {
   font-family: 'YEFONTYSH', sans-serif;
 }
 
-
 @keyframes wordsLoop {
   0% {
     transform: translateX(100%);
@@ -998,23 +980,14 @@ body {
   }
 }
 
-/*聊天框的渐变*/
-.fade-in {
-  transition: opacity 0.5s ease; /* 透明度过渡0.5秒，效果平滑 */
-}
-
-.fade-out {
-  transition: opacity 0.5s ease; /* 透明度过渡0.5秒，效果平滑 */
-  opacity: 0; /* 淡出至完全透明 */
-}
-
+/* 聊天框的渐变 */
 #chat {
   position: absolute;
   width: 825px;
   height: 255px;
   top: 1905px;
   left: 2400px;
-  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 #danmaku {
@@ -1027,12 +1000,10 @@ body {
 }
 
 #danmaku-iframe {
-
   transform: scale(2, 2);
   width: 50%;
   height: 50%;
   transform-origin: left top;
-
   border: none;
 }
 
@@ -1064,13 +1035,13 @@ body {
   -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#chat-content p {
+#chat-content osu-parser {
   font-family: YEFONTYSH, sans-serif;
   font-size: 33px;
   margin: 0px;
   color: #1D1D1D;
-  white-space: normal; /* 允许自动换行 */
-  overflow-wrap: break-word; /* 长单词换行 */
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .time {
@@ -1089,69 +1060,11 @@ body {
   color: #32afaf;
 }
 
-
 #map-info-container {
   position: absolute;
   top: 1817px;
   width: 3840px;
   height: 343px;
-}
-
-.picked-by-team-a #map-cover {
-  border-bottom: 62px solid #AF3232;
-  box-sizing: border-box;
-}
-
-.picked-by-team-b #map-cover {
-  border-bottom: 62px solid #1D1D1D;
-  box-sizing: border-box;
-}
-
-
-.team-a-map-mod-container {
-  width: 109px;
-  height: 39px;
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
-  display: flex;
-  /*水平垂直居中*/
-  justify-content: center;
-  align-content: center;
-
-  /*用#AF3232填充这个div*/
-  background-color: #AF3232;
-  border-radius: 21px 0px 21px 0px;
-  z-index: 2;
-}
-
-
-.tiebreaker-map-mod-container {
-  width: 109px;
-  height: 39px;
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
-  display: flex;
-  /*水平垂直居中*/
-  justify-content: center;
-  align-content: center;
-
-  /*用#9bdb22填充这个div*/
-  background-color: #9bdb22;
-  border-radius: 21px 0px 21px 0px;
-  z-index: 2;
-}
-
-.tiebreaker-map-mod {
-  width: 58px;
-  height: 24px;
-  font-family: TorusNotched-Regular, sans-serif;
-  font-size: 29px;
-  font-weight: normal;
-  font-stretch: normal;
-  letter-spacing: 0px;
-  color: #ffffff;
 }
 
 #map-picker-container {
@@ -1178,10 +1091,9 @@ body {
   top: -62px;
   height: 405px;
   z-index: -1;
-  object-fit: cover; /* 保持图片的宽高比并填充容器 */
-  overflow: hidden; /* 隐藏超出容器的内容 */
+  object-fit: cover;
+  overflow: hidden;
 }
-
 
 #map-diff {
   position: absolute;
@@ -1191,14 +1103,12 @@ body {
   color: #1D1D1D;
   left: 1460px;
   top: 88px;
-  /* 防止文本换行 */
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1; /* 设置为1倍字体大小 */
+  line-height: 1;
 }
 
 #map-mapper-label {
-
   position: absolute;
   width: 310px;
   font-family: MontserratBlack, sans-serif;
@@ -1206,9 +1116,8 @@ body {
   color: #1D1D1D;
   left: 1460px;
   top: 142px;
-  /* 防止文本换行 */
   white-space: nowrap;
-  line-height: 1; /* 设置为1倍字体大小 */
+  line-height: 1;
 }
 
 #map-mapper {
@@ -1217,13 +1126,11 @@ body {
   font-family: MontserratBlack, sans-serif;
   font-size: 50px;
   color: #AF3232;
-
   left: 1778px;
   top: 142px;
-  /* 防止文本换行 */
   white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1; /* 设置为1倍字体大小 */
+  line-height: 1;
 }
 
 #map-title-scroll-container {
@@ -1250,14 +1157,13 @@ body {
   box-sizing: content-box;
   margin: 0;
   animation-delay: -10s;
-  line-height: 1; /* 设置为1倍字体大小 */
+  line-height: 1;
 }
 
 @keyframes scrollText {
   0% {
     transform: translateX(0);
   }
-
   100% {
     transform: translateX(-100%);
   }
@@ -1275,14 +1181,14 @@ body {
   font-size: 50px;
   font-family: MontserratBlack, sans-serif;
   padding-right: 10px;
-  line-height: 1; /* 设置为1倍字体大小 */
+  line-height: 1;
 }
 
 .map-data-label {
   color: #1D1D1D;
   font-size: 50px;
   font-family: MontserratBlack, sans-serif;
-  line-height: 1; /* 设置为1倍字体大小 */
+  line-height: 1;
 }
 
 .control-panel {
@@ -1298,10 +1204,8 @@ body {
   font-size: 30px;
   color: #FFFFFF;
   position: absolute;
-
   top: 3px;
   left: 10px;
-
 }
 
 .panel-buttons {
@@ -1323,6 +1227,7 @@ body {
   font-size: 20px;
   color: #808080;
   border: none;
+  cursor: pointer;
 }
 
 .button-active {
@@ -1334,6 +1239,7 @@ body {
   font-size: 20px;
   color: #FFFFFF;
   border: none;
+  cursor: pointer;
 }
 
 .button-active:hover {
@@ -1357,12 +1263,6 @@ body {
   gap: 20px;
 }
 
-.team-a-player-list,
-.team-b-player-list {
-  display: flex;
-  gap: 20px;
-}
-
 #background-video {
   z-index: -100;
   position: fixed;
@@ -1377,6 +1277,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1; /* 确保视频在所有内容后面 */
+  z-index: -1;
 }
 </style>

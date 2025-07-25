@@ -1,7 +1,7 @@
 import {BracketBeatmap, BracketBeatmapInfo, BracketData} from './types/bracket-models';
 
 
-class BracketDataManager {
+export class BracketDataManager {
   private static instances: Map<string, BracketDataManager> = new Map();
   private data: BracketData | null = null;
   private loadingPromise: Promise<BracketData> | null = null;
@@ -10,22 +10,6 @@ class BracketDataManager {
   private constructor(private mode: string) {
   }
 
-  private static modEnum: { [key: string]: number } = {
-    'NM': 0,
-    'HD': 8,
-    'HR': 16,
-    'DT': 64,
-    'FM': 0,
-    'TB': 0,
-    'RC': 0,
-    'HB': 0,
-    'LN': 0,
-    'SV': 0,
-  };
-
-  public static getModEnumFromModString(mod: string | undefined): number {
-    return BracketDataManager.modEnum[mod?.toUpperCase() || 'NM'] || 0;
-  }
 
   static getInstance(mode: string): BracketDataManager {
     if (!BracketDataManager.instances.has(mode)) {
@@ -51,7 +35,7 @@ class BracketDataManager {
 
   private async loadBracketData(): Promise<BracketData> {
     try {
-      const response = await fetch(`../../data/bracket_${this.mode}.json`);
+      const response = await fetch(`../../data/bracket-${this.mode}.json`);
       if (response.ok) {
         try {
           const jsonData = await response.json();

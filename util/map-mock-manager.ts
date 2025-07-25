@@ -2,20 +2,40 @@ import {MapMockData} from "./types/map-mock-models.ts";
 import type {OsuFileBeatmapInfo, OsuFileBeatmapMetadata} from "./types/parsed-osu-file-models.ts";
 
 class MapMockManager {
+  private static instances: Map<string, MapMockManager> = new Map();
   private mocks: MapMockData;
   private DEBUG = true;
   private mode: string;
+  private loadingPromise: Promise<MapMockData> | null = null;
 
-  constructor(mode: string) {
+  private constructor(mode: string) {
     this.mode = mode;
   }
 
+  public static getInstance(mode: string): MapMockManager {
+    if (!MapMockManager.instances.has(mode)) {
+      MapMockManager.instances.set(mode, new MapMockManager(mode));
+    }
+    return MapMockManager.instances.get(mode)!;
+  }
+
   async init() {
-    this.mocks = await this.loadMocks();
+    if (this.mocks) {
+      return this.mocks;
+    }
+
+    if (this.loadingPromise) {
+      return this.loadingPromise;
+    }
+
+    this.loadingPromise = this.loadMocks();
+    this.mocks = await this.loadingPromise;
+    this.loadingPromise = null;
+    return this.mocks;
   }
 
   async loadMocks() {
-    let mapmocks = await fetch(`../../data/mapmock_${this.mode}.json`);
+    let mapmocks = await fetch(`../../data/mapmock-${this.mode}.json`);
     if (mapmocks.ok) {
       try {
         let json = await mapmocks.json();
