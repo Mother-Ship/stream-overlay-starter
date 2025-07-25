@@ -20,10 +20,25 @@ import {ref, reactive, onMounted, watch, computed, nextTick} from 'vue';
 const urlParams = new URLSearchParams(window.location.search);
 const mode = urlParams.get('mode') || 'std';
 
+// 计算属性：根据游戏模式获取对应的弹幕地址
+const danmakuSrc = computed(() => {
+  switch (mode) {
+    case 'taiko':
+      return import.meta.env.VITE_DANMAKU_SRC_TAIKO || '';
+    case 'ctb':
+      return import.meta.env.VITE_DANMAKU_SRC_CTB || '';
+    case 'mania':
+      return import.meta.env.VITE_DANMAKU_SRC_MANIA || '';
+    default:
+      return import.meta.env.VITE_DANMAKU_SRC_STD || '';
+  }
+});
+
 // 响应式状态定义
 const gameState = ref(0); // IPC状态
 const isRecordingNotificationVisible = ref(false);
 const isRecordingAckButtonVisible = ref(false);
+const matchName = ref(import.meta.env.VITE_MATCH_NAME || '');
 
 // 队伍信息
 const teamA = reactive({
@@ -136,8 +151,7 @@ const chatMessagesHtml = computed(() => {
       'unknown': 'unknown-chat'
     }[item.team];
 
-    return
-    `<p>
+    return`<p>
 <span class="time chat-item">${item.time}&nbsp;</span>
 <span class="${teamClass} chat-item">${item.name}:&nbsp;</span>
 <span class="chat-item">${item.messageBody}</span>
@@ -149,6 +163,10 @@ const chatMessagesHtml = computed(() => {
 let osuParser: any = null;
 let mapMockManager: any = null;
 let bracketManager: any = null;
+
+// 背景视频配置
+const isBackgroundVideoEnabled = import.meta.env.VITE_BACKGROUND_VIDEO_ENABLED;
+const backgroundVideoPath = import.meta.env.VITE_BACKGROUND_VIDEO_PATH;
 
 onMounted(async () => {
 
@@ -206,10 +224,12 @@ function initCountUpInstances() {
     mapStar: new CountUp('map-star', 0, {duration: 0.5, decimalPlaces: 2, suffix: '*'}),
     teamAScoreLead: new CountUp('team-a-score-lead', 0, {duration: 0.5, useGrouping: true}),
     teamBScoreLead: new CountUp('team-b-score-lead', 0, {duration: 0.5, useGrouping: true}),
-    mapLengthMinutes: new CountUp('map-length-minutes', 0, {duration: 0.5,
+    mapLengthMinutes: new CountUp('map-length-minutes', 0, {
+      duration: 0.5,
       formattingFn: (x: number) => x.toString().padStart(2, "0"),
     }),
-    mapLengthSeconds: new CountUp('map-length-seconds', 0, {duration: 0.5,
+    mapLengthSeconds: new CountUp('map-length-seconds', 0, {
+      duration: 0.5,
       formattingFn: (x: number) => x.toString().padStart(2, "0"),
     }),
   };
@@ -395,10 +415,8 @@ function updateScores(tourney: any) {
     const shortBarWidth = 1920 - (1920 - 615) * Y;
 
     if (leftScore === rightScore) {
-      teamA.scoreBarWidth = 1920;
-      teamB.scoreBarWidth = 1920;
-      teamA.scoreLeadVisible = false;
-      teamB.scoreLeadVisible = false;
+      teamA.scoreBarWidth = teamB.scoreBarWidth = 1920;
+      teamA.scoreLeadVisible = teamB.scoreLeadVisible = false;
     } else if (leftScore > rightScore) {
       teamA.scoreBarWidth = 3840 - shortBarWidth;
       teamB.scoreBarWidth = shortBarWidth;
@@ -485,29 +503,36 @@ function scrollChatToBottom() {
 
 function checkObsRecording() {
   // @ts-ignore
-  //TODO 非OBS窗口 OK按钮也去掉
-  if (window.obsstudio) {
-    console.log('OBS Browser Source detected, version:', (window as any).obsstudio.pluginVersion);
-    (window as any).obsstudio.getControlLevel((level: number) => {
-      if (level < 1) {
-        isRecordingAckButtonVisible.value = true;
-      } else {
-        isRecordingNotificationVisible.value = true;
-        (window as any).obsstudio.getStatus((status: any) => {
-          isRecordingAckButtonVisible.value = !status.recording;
-
-          window.addEventListener('obsRecordingStarted', () => {
-            isRecordingAckButtonVisible.value = false;
-          });
-          window.addEventListener('obsRecordingStopped', () => {
-            isRecordingAckButtonVisible.value = true;
-          });
-        });
-      }
-    });
-  } else {
-    isRecordingAckButtonVisible.value = true;
+  if (!window.obsstudio) {
+    console.log('OBS Browser Source not detected');
+    return;
   }
+
+  console.log('OBS Browser Source detected, version:', (window as any).obsstudio.pluginVersion);
+  (window as any).obsstudio.getControlLevel((level: number) => {
+    console.log(`OBS browser control level: ${level}`);
+
+    if (level < 1) {
+      console.log('READ_OBS not available');
+      return;
+    }
+
+    (window as any).obsstudio.getStatus((status: any) => {
+      isRecordingAckButtonVisible.value = !status.recording;
+      isRecordingNotificationVisible.value = !status.recording;
+
+      window.addEventListener('obsRecordingStarted', () => {
+        isRecordingAckButtonVisible.value = false;
+        isRecordingNotificationVisible.value = false;
+      });
+      window.addEventListener('obsRecordingStopped', () => {
+        isRecordingAckButtonVisible.value = true;
+        isRecordingNotificationVisible.value = true;
+      });
+    });
+
+  });
+
 }
 
 function storeMatchResultIfNeed(tourney: any, bid: number) {
@@ -559,17 +584,16 @@ function handleRecordAck() {
 <template>
   <div class="container">
     <!-- 背景视频 -->
-<!--    TODO 视频开关和路径配置在.env-->
-    <div id="background-video">
+    <div v-if="isBackgroundVideoEnabled" id="background-video">
       <video autoplay muted loop id="bg-video">
-        <source src="../../assets/video/CL_loop_1_compressed.mp4" type="video/mp4">
+        <source :src="backgroundVideoPath" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
 
     <!-- 比赛标题 -->
     <div id="match-name-container">
-      <span id="match-name">CHINA LAN</span>
+      <span id="match-name">{{ matchName }}</span>
     </div>
 
     <!-- 比赛轮次 -->
@@ -634,17 +658,15 @@ function handleRecordAck() {
     </div>
 
     <!-- 聊天框 -->
-    <!--TODO 聊天HTML未正确生成-->
     <div id="chat" :style="{ opacity: chat.visible ? 1 : 0 }">
       <div id="chat-content" v-html="chatMessagesHtml"></div>
     </div>
 
     <!-- 弹幕 -->
-    <!--TODO 4模式弹幕地址分别配置在env-->
     <div id="danmaku">
       <iframe id="danmaku-iframe"
               allowTransparency="true"
-              src="https://vercel.blive.chat/room/BQVLQJXMWFEO8?roomKeyType=2&lang=zh&templateUrl=http%3A%2F%2F127.0.0.1%3A24050%2Fclan2025%2Flib%2Fdanmaku_template%2Fyoutube%2Findex.html"
+              :src="danmakuSrc"
       ></iframe>
     </div>
 
@@ -743,7 +765,7 @@ function handleRecordAck() {
   </div>
 </template>
 
-<style scoped>
+<style>
 @font-face {
   font-family: "YEFONTYSH";
   src: url('../../assets/fonts/YeZiGongChangYunShiHei-2.ttf');
@@ -1000,7 +1022,7 @@ body {
 #danmaku {
   position: absolute;
   width: 825px;
-  height: 255px;
+  height: 253px;
   top: 1905px;
   left: 2400px;
   overflow: hidden;
@@ -1017,7 +1039,7 @@ body {
 #chat-content {
   position: absolute;
   width: 820px;
-  height: 255px;
+  height: 253px;
   z-index: 4;
   overflow-y: auto;
   box-sizing: border-box;
@@ -1042,7 +1064,7 @@ body {
   -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-#chat-content osu-parser {
+#chat-content p {
   font-family: YEFONTYSH, sans-serif;
   font-size: 33px;
   margin: 0px;
