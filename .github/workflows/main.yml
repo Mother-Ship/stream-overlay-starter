@@ -1,0 +1,83 @@
+name: 打直播包
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update_and_compress:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: 签出代码所在的分支
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.ref_name }}
+
+    - name: 创建 target 以及 tosu 需要的 static 目录
+      run: mkdir -p /tmp/target/static
+
+    - name: 安装 Node.js 和 npm
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: 安装 Sass 编译器
+      run: npm install -g sass
+
+    - name: 编译 SCSS/Sass 文件到 CSS
+      run: |
+        # 查找所有 .scss 和 .sass 文件并编译
+        find . -name "*.scss" -o -name "*.sass" | while read -r file; do
+          if [[ "$file" == *.scss ]]; then
+            # 编译 .scss 文件
+            output_file="${file%.scss}.css"
+            echo "编译 $file 到 $output_file"
+            sass "$file" "$output_file" -s compressed --no-source-map
+            # 删除原始 .scss 文件
+            rm "$file"
+            echo "已删除原始文件: $file"
+          elif [[ "$file" == *.sass ]]; then
+            # 编译 .sass 文件
+            output_file="${file%.sass}.css"
+            echo "编译 $file 到 $output_file"
+            sass "$file" "$output_file" -s compressed --no-source-map
+            # 删除原始 .sass 文件
+            rm "$file"
+            echo "已删除原始文件: $file"
+          fi
+        done
+      
+    - name: 将 main 分支代码复制到 target/static
+      run: |
+        rm -rf ./.git
+        cp -af ./ /tmp/target/static/clan2025
+        
+    - name: 下载 tosu release
+      uses: wei/wget@v1
+      with:
+        args: -O tosu.zip https://github.com/tosuapp/tosu/releases/download/v4.9.0/tosu-windows-v4.9.0.zip
+    
+    - name: 解压 tosu
+      run: unzip tosu.zip -d /tmp/target/
+    
+    - name: 写入 tosu配置
+      run: |
+        echo "ENABLE_AUTOUPDATE=false\nSTATIC_FOLDER_PATH=./static" > /tmp/target/tsosu.env
+
+    - name: 获取当前日期
+      id: date
+      run: |
+        echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+        echo "short_sha=$(echo ${GITHUB_SHA} | head -c 7)" >> $GITHUB_OUTPUT
+    - name: 打压缩包并上传
+      uses: actions/upload-artifact@v4
+      with:
+        name: CLAN2025-stream-overlay_${{ steps.date.outputs.date }}_${{ github.ref_name }}_${{ steps.date.outputs.short_sha }}
+        compression-level: 9
+        path: /tmp/target

@@ -1,0 +1,631 @@
+{
+  "Ruleset": {
+    "ShortName": "osu",
+    "Name": "osu!",
+    "InstantiationInfo": "osu.Game.Rulesets.Osu.OsuRuleset, osu.Game.Rulesets.Osu",
+    "LastAppliedDifficultyVersion": 20250306,
+    "Available": true
+  },
+  "Matches": [],
+  "Rounds": [
+    {
+      "Name": "ShowMatch",
+      "Description": "ShowMatch",
+      "BestOf": 11,
+      "BanCount": 1,
+      "Beatmaps": [
+        {
+          "ID": 5015437,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5015437,
+            "DifficultyName": "Kayoko's Ura Oni",
+            "BPM": 175.0,
+            "Length": 198000.0,
+            "StarRating": 5.43,
+            "EndTimeObjectCount": 1,
+            "TotalObjectCount": 1162,
+            "Metadata": {
+              "Title": "Otona Mode (YUC'e Remix)",
+              "title_unicode": "オトナモード (YUC'e Remix)",
+              "Artist": "Risuko, Mona from STAR*ANIS",
+              "artist_unicode": "りすこ･もな from STAR☆ANIS",
+              "Author": {
+                "OnlineID": 19901680,
+                "Username": "ler1211",
+                "CountryString": "Unknown"
+              },
+              "Source": "アイカツ！",
+              "tags": "yuce ゆーしえ aikatsu electronic japanese star anis sammu kayoko k_a_y_o_k_o 巴山萌菜 tomoyama mona 安藤紗々 andou sasa ささかまリス子 sasakama risuko jcore j-core j core anion \"not odayaka\"",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 2.0,
+              "OverallDifficulty": 6.0,
+              "ApproachRate": 10.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2334877/covers/cover@2x.jpg?1744984900",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2334877/covers/card@2x.jpg?1744984900",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2334877/covers/list@2x.jpg?1744984900"
+            }
+          }
+        },
+        {
+          "ID": 1885294,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 1885294,
+            "DifficultyName": "Oni",
+            "BPM": 150.0,
+            "Length": 185000.0,
+            "StarRating": 4.94,
+            "EndTimeObjectCount": 2,
+            "TotalObjectCount": 950,
+            "Metadata": {
+              "Title": "Mado",
+              "title_unicode": "Mado",
+              "Artist": "N^2",
+              "artist_unicode": "N²",
+              "Author": {
+                "OnlineID": 4469725,
+                "Username": "maziari1105",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 6.0,
+              "ApproachRate": 5.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/903082/covers/cover@2x.jpg?1546309284",
+              "card@2x": "https://assets.ppy.sh/beatmaps/903082/covers/card@2x.jpg?1546309284",
+              "list@2x": "https://assets.ppy.sh/beatmaps/903082/covers/list@2x.jpg?1546309284"
+            }
+          }
+        },
+        {
+          "ID": 3860537,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 3860537,
+            "DifficultyName": "Deceit",
+            "BPM": 248.0,
+            "Length": 172000.0,
+            "StarRating": 5.54,
+            "EndTimeObjectCount": 1,
+            "TotalObjectCount": 1255,
+            "Metadata": {
+              "Title": "Naraku no Majo",
+              "title_unicode": "奈落の魔女",
+              "Artist": "ELFENSJoN",
+              "artist_unicode": "ELFENSJóN",
+              "Author": {
+                "OnlineID": 12842392,
+                "Username": "arcpotato",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "majou otmt osu!taiko malaysia tournament quarterfinals nm3 nomod3 featured artist hanatan 花たん yurica ユリカ ephemera japanese rock j-rock jrock fa",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 2.0,
+              "OverallDifficulty": 6.0,
+              "ApproachRate": 10.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1875952/covers/cover@2x.jpg?1672338614",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1875952/covers/card@2x.jpg?1672338614",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1875952/covers/list@2x.jpg?1672338614"
+            }
+          }
+        },
+        {
+          "ID": 5178789,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5178789,
+            "DifficultyName": "nm4",
+            "BPM": 128.0,
+            "Length": 158000.0,
+            "StarRating": 4.28,
+            "EndTimeObjectCount": 45,
+            "TotalObjectCount": 979,
+            "Metadata": {
+              "Title": "positive credit union",
+              "title_unicode": "positive credit union",
+              "Artist": "MYUKKE.",
+              "artist_unicode": "MYUKKE.",
+              "Author": {
+                "OnlineID": 2062410,
+                "Username": "UnagiDon",
+                "CountryString": "Unknown"
+              },
+              "Source": "Flexible X",
+              "tags": "cnts 2025 chinese taiko showdown ro16 round of sixteen nm4 gimmick",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 5.5,
+              "ApproachRate": 5.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2392101/covers/cover@2x.jpg?1750685637",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2392101/covers/card@2x.jpg?1750685637",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2392101/covers/list@2x.jpg?1750685637"
+            }
+          }
+        },
+        {
+          "ID": 3742072,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 3742072,
+            "DifficultyName": "hi ><",
+            "BPM": 210.0,
+            "Length": 166000.0,
+            "StarRating": 5.49,
+            "TotalObjectCount": 1398,
+            "Metadata": {
+              "Title": "Hello amen",
+              "title_unicode": "Hello amen",
+              "Artist": "exnoiz",
+              "artist_unicode": "exnoiz",
+              "Author": {
+                "OnlineID": 19901680,
+                "Username": "ler1211",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "inabakumori 稲葉曇 hello marina ハローマリーナ",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.6,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 5.6,
+              "ApproachRate": 5.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1823672/covers/cover@2x.jpg?1662300115",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1823672/covers/card@2x.jpg?1662300115",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1823672/covers/list@2x.jpg?1662300115"
+            }
+          }
+        },
+        {
+          "ID": 4610414,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 4610414,
+            "DifficultyName": "Inner Oni",
+            "BPM": 163.0,
+            "Length": 147000.0,
+            "StarRating": 4.87,
+            "TotalObjectCount": 1033,
+            "Metadata": {
+              "Title": "Hazukashigariya no Toy Soldier",
+              "title_unicode": "はずかしがりやのトイ・ソルジャー",
+              "Artist": "AAAA",
+              "artist_unicode": "ああああ",
+              "Author": {
+                "OnlineID": 8301957,
+                "Username": "_gt",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "toy → pop fantasia! 8bit electronic instrumental bitpop chiptune toypop vgm ahc-0013 ああ･･･翡翠茶漬け･･･ aa...hisui chazuke... featured artist fa mg mpg mappers' guild",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.5,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 6.0,
+              "ApproachRate": 5.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2182073/covers/cover@2x.jpg?1745057359",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2182073/covers/card@2x.jpg?1745057359",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2182073/covers/list@2x.jpg?1745057359"
+            }
+          }
+        },
+        {
+          "ID": 3409441,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 3409441,
+            "DifficultyName": "antipathy world",
+            "BPM": 170.0,
+            "Length": 187000.0,
+            "StarRating": 5.23,
+            "TotalObjectCount": 1192,
+            "Metadata": {
+              "Title": "phony",
+              "title_unicode": "フォニイ",
+              "Artist": "KAF feat. KAFU",
+              "artist_unicode": "花譜 feat. 可不",
+              "Author": {
+                "OnlineID": 1980256,
+                "Username": "komasy",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "japanese vocaloid j-pop jpop pop ツミキ tsumiki foni 神椿スタジオ kamitsubaki studio vtuber virtual youtuber singer cover duet female vocals vocal synth cevio 木澄玲生 kisumi rei 音楽的同位体",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 7.0,
+              "OverallDifficulty": 6.0,
+              "ApproachRate": 10.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1669463/covers/cover@2x.jpg?1647165260",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1669463/covers/card@2x.jpg?1647165260",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1669463/covers/list@2x.jpg?1647165260"
+            }
+          }
+        },
+        {
+          "ID": 2455266,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 2455266,
+            "DifficultyName": "Axer's Inner Oni",
+            "BPM": 210.0,
+            "Length": 112000.0,
+            "StarRating": 5.65,
+            "EndTimeObjectCount": 3,
+            "TotalObjectCount": 839,
+            "Metadata": {
+              "Title": "LvC3",
+              "title_unicode": "LvC3",
+              "Artist": "Rohi",
+              "artist_unicode": "ろひ",
+              "Author": {
+                "OnlineID": 14102976,
+                "Username": "Hivie",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "electronic instrumental fa featured artist mappers' guild mg axer idealism",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.5,
+              "CircleSize": 2.0,
+              "OverallDifficulty": 6.0,
+              "ApproachRate": 9.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1176918/covers/cover@2x.jpg?1650696084",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1176918/covers/card@2x.jpg?1650696084",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1176918/covers/list@2x.jpg?1650696084"
+            }
+          }
+        },
+        {
+          "ID": 5178816,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 5178816,
+            "DifficultyName": "Kamigami (CNTS ver.)",
+            "BPM": 135.0,
+            "Length": 212000.0,
+            "StarRating": 4.01,
+            "TotalObjectCount": 1214,
+            "Metadata": {
+              "Title": "Respect Fuujin",
+              "title_unicode": "リスペク風神",
+              "Artist": "beatMARIO to MARON",
+              "artist_unicode": "ビートまりおとまろん",
+              "Author": {
+                "OnlineID": 4315477,
+                "Username": "superSSS",
+                "CountryString": "Unknown"
+              },
+              "Source": "東方風神録　～ Mountain of Faith.",
+              "tags": "cool&create 妖怪の山　～ mysterious mountain",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 5.5,
+              "ApproachRate": 5.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2392111/covers/cover@2x.jpg?1750687792",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2392111/covers/card@2x.jpg?1750687792",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2392111/covers/list@2x.jpg?1750687792"
+            }
+          }
+        },
+        {
+          "ID": 1955614,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 1955614,
+            "DifficultyName": "[R]oger's Oni",
+            "BPM": 156.0,
+            "Length": 286000.0,
+            "StarRating": 4.01,
+            "EndTimeObjectCount": 5,
+            "TotalObjectCount": 1250,
+            "Metadata": {
+              "Title": "Shokuzai Belladonna",
+              "title_unicode": "贖罪ベラドンナ",
+              "Artist": "BLENHEIM",
+              "artist_unicode": "BLENHEIM",
+              "Author": {
+                "OnlineID": 3577322,
+                "Username": "[R]",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "ron roger ][ -gh- ][ ave;new feat. 佐倉紗織 sakura saori pop jpop j-pop japanese 6th enlever〜アンルヴェ〜 ブレナム",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 5.0,
+              "ApproachRate": 5.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/936083/covers/cover@2x.jpg?1622157688",
+              "card@2x": "https://assets.ppy.sh/beatmaps/936083/covers/card@2x.jpg?1622157688",
+              "list@2x": "https://assets.ppy.sh/beatmaps/936083/covers/list@2x.jpg?1622157688"
+            }
+          }
+        },
+        {
+          "ID": 1347897,
+          "Mods": "FM",
+          "BeatmapInfo": {
+            "OnlineID": 1347897,
+            "DifficultyName": "Inner Oni",
+            "BPM": 195.0,
+            "Length": 164000.0,
+            "StarRating": 5.21,
+            "TotalObjectCount": 1032,
+            "Metadata": {
+              "Title": "Soushi Souai",
+              "title_unicode": "相思創愛",
+              "Artist": "Itou Kashitarou x Ron",
+              "artist_unicode": "伊東歌詞太郎 ×ろん",
+              "Author": {
+                "OnlineID": 3701008,
+                "Username": "newyams99",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "相思相愛 love utaite kotonoha project 言ノ葉プロジェクト marasy8 kagamine rin len vocaloid cover",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.5,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 6.5,
+              "ApproachRate": 5.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/635203/covers/cover@2x.jpg?1515037137",
+              "card@2x": "https://assets.ppy.sh/beatmaps/635203/covers/card@2x.jpg?1515037137",
+              "list@2x": "https://assets.ppy.sh/beatmaps/635203/covers/list@2x.jpg?1515037137"
+            }
+          }
+        },
+        {
+          "ID": 2121913,
+          "Mods": "FM",
+          "BeatmapInfo": {
+            "OnlineID": 2121913,
+            "DifficultyName": "Inner Oni",
+            "BPM": 165.0,
+            "Length": 160000.0,
+            "StarRating": 5.28,
+            "EndTimeObjectCount": 3,
+            "TotalObjectCount": 991,
+            "Metadata": {
+              "Title": "Colorless",
+              "title_unicode": "Colorless",
+              "Artist": "Spacelectro feat. Momokami",
+              "artist_unicode": "Spacelectro feat. ももかみ",
+              "Author": {
+                "OnlineID": 1980256,
+                "Username": "komasy",
+                "CountryString": "Unknown"
+              },
+              "Source": "東方紅魔郷　～ the Embodiment of Scarlet Devil.",
+              "tags": "東方project touhou arrange koumakyou th6 亡き王女の為のセプテット septet for a dead princess naki oujyo no tame no septet 上海アリス幻樂団 team shanghai alice 東方ボーカルedm5 tjbc 11 tjbc#11",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 6.0,
+              "OverallDifficulty": 6.0,
+              "ApproachRate": 6.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1013821/covers/cover@2x.jpg?1564843420",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1013821/covers/card@2x.jpg?1564843420",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1013821/covers/list@2x.jpg?1564843420"
+            }
+          }
+        },
+        {
+          "ID": 2942319,
+          "Mods": "EX",
+          "BeatmapInfo": {
+            "OnlineID": 2942319,
+            "DifficultyName": "Dromos",
+            "BPM": 190.0,
+            "Length": 119000.0,
+            "StarRating": 6.06,
+            "EndTimeObjectCount": 2,
+            "TotalObjectCount": 919,
+            "Metadata": {
+              "Title": "Phi",
+              "title_unicode": "Φ",
+              "Artist": "Street",
+              "artist_unicode": "Street",
+              "Author": {
+                "OnlineID": 11081858,
+                "Username": "GIGACHAD",
+                "CountryString": "Unknown"
+              },
+              "Source": "Muse Dash",
+              "tags": "featured artist fa mg mapper's mappers' mappers guild _dusk_ -dusk yenmaster dako electronic instrumental 音ゲー依存症vol.8 give up treatment volume eight osu!",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 2.0,
+              "OverallDifficulty": 6.0,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1429217/covers/cover@2x.jpg?1631507594",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1429217/covers/card@2x.jpg?1631507594",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1429217/covers/list@2x.jpg?1631507594"
+            }
+          }
+        },
+        {
+          "ID": 5178818,
+          "Mods": "TB",
+          "BeatmapInfo": {
+            "OnlineID": 5178818,
+            "DifficultyName": "Eisennarbe",
+            "BPM": 174.0,
+            "Length": 265000.0,
+            "StarRating": 5.93,
+            "EndTimeObjectCount": 6,
+            "TotalObjectCount": 1811,
+            "Metadata": {
+              "Title": "Name of oath",
+              "title_unicode": "Name of oath",
+              "Artist": "void (Mournfinale) feat. Kotsukimiya (Gt. Eba)",
+              "artist_unicode": "void (Mournfinale) feat. コツキミヤ (Gt. えば)",
+              "Author": {
+                "OnlineID": 4315477,
+                "Username": "superSSS",
+                "CountryString": "Unknown"
+              },
+              "Source": "BMS",
+              "tags": "bof2010 the bms of fighters 2010 - the evolution of war - disclude",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 6.5,
+              "ApproachRate": 5.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2392112/covers/cover@2x.jpg?1750687835",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2392112/covers/card@2x.jpg?1750687835",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2392112/covers/list@2x.jpg?1750687835"
+            }
+          }
+        }
+      ],
+      "StartDate": "2025-07-12T02:03:15.7865618+08:00",
+      "Matches": []
+    }
+  ],
+  "Teams": [
+    {
+      "FullName": "Garden",
+      "FlagName": "A",
+      "Acronym": "2849992",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "[lily_white]",
+      "FlagName": "B",
+      "Acronym": "12749779",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    }
+  ],
+  "Progressions": [],
+  "ChromaKeyWidth": 1024,
+  "PlayersPerTeam": 4,
+  "AutoProgressScreens": true,
+  "SplitMapPoolByMods": true,
+  "DisplayTeamSeeds": false
+}

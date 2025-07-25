@@ -1,0 +1,107 @@
+[
+    {
+        "criterion": "Friction",
+        "values": {
+            "mod": "RC",
+            "index": "1"
+        }
+    },
+    {
+        "criterion": "Houkai no Bigaku",
+        "values": {
+            "mod": "RC",
+            "index": "2"
+        }
+    },
+    {
+        "criterion": "Wind Tales",
+        "values": {
+            "mod": "RC",
+            "index": "3"
+        }
+    },
+    {
+        "criterion": "24eeevo",
+        "values": {
+            "mod": "RC",
+            "index": "4"
+        }
+    },
+    {
+        "criterion": "Tendou Musou no Homura",
+        "values": {
+            "mod": "RC",
+            "index": "5"
+        }
+    },
+    {
+        "criterion": "On Seeking U",
+        "values": {
+            "mod": "RC",
+            "index": "6"
+        }
+    },
+    {
+        "criterion": "Neighbours Blueish Garden",
+        "values": {
+            "mod": "HB",
+            "index": "1"
+        }
+    },
+    {
+        "criterion": "MONONATI",
+        "values": {
+            "mod": "HB",
+            "index": "2"
+        }
+    },
+    {
+        "criterion": "Youki Sanmyaku",
+        "values": {
+            "mod": "HB",
+            "index": "3"
+        }
+    },
+    {
+        "criterion": "Yueni",
+        "values": {
+            "mod": "LN",
+            "index": "1"
+        }
+    },
+    {
+        "criterion": "Longinus",
+        "values": {
+            "mod": "LN",
+            "index": "2"
+        }
+    },
+    {
+        "criterion": "rezehv",
+        "values": {
+            "mod": "LN",
+            "index": "3"
+        }
+    },
+    {
+        "criterion": "thrinos",
+        "values": {
+            "mod": "SV",
+            "index": "1"
+        }
+    },
+    {
+        "criterion": "anticrystal",
+        "values": {
+            "mod": "SV",
+            "index": "2"
+        }
+    },
+    {
+        "criterion": "VIVID ABYSS",
+        "values": {
+            "mod": "TB",
+            "index": "1"
+        }
+    }
+]

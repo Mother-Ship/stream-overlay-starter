@@ -1,0 +1,636 @@
+{
+  "Ruleset": {
+    "ShortName": "osu",
+    "Name": "osu!",
+    "InstantiationInfo": "osu.Game.Rulesets.Osu.OsuRuleset, osu.Game.Rulesets.Osu",
+    "LastAppliedDifficultyVersion": 20250306,
+    "Available": true
+  },
+  "Matches": [],
+  "Rounds": [
+    {
+      "Name": "ShowMatch",
+      "Description": "ShowMatch",
+      "BestOf": 9,
+      "BanCount": 1,
+      "Beatmaps": [
+        {
+          "ID": 4841702,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 4841702,
+            "DifficultyName": "Aku's Doppelganger",
+            "BPM": 260.0,
+            "Length": 211000.0,
+            "StarRating": 6.99,
+            "EndTimeObjectCount": 633,
+            "TotalObjectCount": 914,
+            "Metadata": {
+              "Title": "Nisemono Chuuihou",
+              "title_unicode": "ニセモノ注意報",
+              "Artist": "B-ko (CV: Toyama Nao)",
+              "artist_unicode": "B子 (CV: 東山奈央)",
+              "Author": {
+                "OnlineID": 10674528,
+                "Username": "Verti",
+                "CountryString": "Unknown"
+              },
+              "Source": "終焉ノ栞プロジェクト",
+              "tags": "chanyah cheri dj_lucky dj lucky thx for carry vaqu -aku overranked bad_mapper shuuen no shiori project bookmark of 終焉 -re:act- スズム warning of impostors advisory 150-p cover electronic synth rock japanese イア ia vocaloid 鏡音リン after school demise game hailie suzumu kagamine rin fayew skill issue lol tfc mrbinking jack frost 150p touyama",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.4,
+              "OverallDifficulty": 9.8,
+              "ApproachRate": 9.8,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2272508/covers/cover@2x.jpg?1749649875",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2272508/covers/card@2x.jpg?1749649875",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2272508/covers/list@2x.jpg?1749649875"
+            }
+          }
+        },
+        {
+          "ID": 3007246,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 3007246,
+            "DifficultyName": "Ultimate",
+            "BPM": 213.0,
+            "Length": 153000.0,
+            "StarRating": 6.27,
+            "EndTimeObjectCount": 364,
+            "TotalObjectCount": 825,
+            "Metadata": {
+              "Title": "Cthugha",
+              "title_unicode": "Cthugha",
+              "Artist": "USAO",
+              "artist_unicode": "USAO",
+              "Author": {
+                "OnlineID": 2369776,
+                "Username": "Greaper",
+                "CountryString": "Unknown"
+              },
+              "Source": "Muse Dash",
+              "tags": "osu!catch world cup 2021 cwc2021 semifinals sf no mod nm2 electronic instrumental video game hardcore tano*c tanoc hardtek frenchcore moombahcore peroperogames 喵斯快跑 tcdr-0068",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.3,
+              "OverallDifficulty": 9.6,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1464062/covers/cover@2x.jpg?1748604069",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1464062/covers/card@2x.jpg?1748604069",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1464062/covers/list@2x.jpg?1748604069"
+            }
+          }
+        },
+        {
+          "ID": 4847958,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 4847958,
+            "DifficultyName": "Memory",
+            "BPM": 140.0,
+            "Length": 121000.0,
+            "StarRating": 4.99,
+            "EndTimeObjectCount": 184,
+            "TotalObjectCount": 566,
+            "Metadata": {
+              "Title": "OST Theme 234",
+              "title_unicode": "OST Theme 234",
+              "Artist": "unknown",
+              "artist_unicode": "unknown",
+              "Author": {
+                "OnlineID": 4350087,
+                "Username": "Sololiquy",
+                "CountryString": "Unknown"
+              },
+              "Source": "ブルーアーカイブ -Blue Archive-",
+              "tags": "blue archive ブルアカ blueaka video game yostar nat games nexon",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.6,
+              "CircleSize": 4.3,
+              "OverallDifficulty": 8.6,
+              "ApproachRate": 8.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2275107/covers/cover@2x.jpg?1733119240",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2275107/covers/card@2x.jpg?1733119240",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2275107/covers/list@2x.jpg?1733119240"
+            }
+          }
+        },
+        {
+          "ID": 4332231,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 4332231,
+            "DifficultyName": "CLOwN",
+            "BPM": 190.0,
+            "Length": 116000.0,
+            "StarRating": 6.39,
+            "EndTimeObjectCount": 245,
+            "TotalObjectCount": 643,
+            "Metadata": {
+              "Title": "PIERROT KNIfE",
+              "title_unicode": "PIERROT KNIfE",
+              "Artist": "MARON (IOSYS)",
+              "artist_unicode": "まろん (IOSYS)",
+              "Author": {
+                "OnlineID": 9502522,
+                "Username": "TNTlealu",
+                "CountryString": "Unknown"
+              },
+              "Source": "SOUND VOLTEX IV HEAVENLY HAVEN",
+              "tags": "not your kitty bemani rhythm arcade sdvx sound voltex perfect ultimate complete tracks 〜legend of kac with Ω〜 instrumental music video game konami amusement c97 maron maron2 〜happy make the town〜 音楽ゲーム 音ゲー the 6th kac original song contest オリジナル楽曲コンテスト sound voltex iii gravity wars コナステ wei_0921 hd2 matsuyuki ame rk657 sanayui hinae -hitomi l1ght_u l1ght hitomi flask",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 8.4,
+              "ApproachRate": 9.2,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1875951/covers/cover@2x.jpg?1742673607",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1875951/covers/card@2x.jpg?1742673607",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1875951/covers/list@2x.jpg?1742673607"
+            }
+          }
+        },
+        {
+          "ID": 3152662,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 3152662,
+            "DifficultyName": "Indigo goodbyes",
+            "BPM": 140.0,
+            "Length": 216000.0,
+            "StarRating": 5.83,
+            "EndTimeObjectCount": 422,
+            "TotalObjectCount": 963,
+            "Metadata": {
+              "Title": "Moonlight at midday",
+              "title_unicode": "真昼の月明かり",
+              "Artist": "Tsukuyomi",
+              "artist_unicode": "月詠み",
+              "Author": {
+                "OnlineID": 6341006,
+                "Username": "Crowley",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "mahiru no tsukiakari ユリイカノン ユリイ・カノン yurry cannon yurrycanon mikoto エポック epoch とうかさ toukasa japanese rock j-rock jrock j-pop jpop pop mononymous",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1539314/covers/cover@2x.jpg?1629685807",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1539314/covers/card@2x.jpg?1629685807",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1539314/covers/list@2x.jpg?1629685807"
+            }
+          }
+        },
+        {
+          "ID": 3535062,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 3535062,
+            "DifficultyName": "Hexuluous' Common Sense",
+            "BPM": 137.0,
+            "Length": 190000.0,
+            "StarRating": 4.81,
+            "EndTimeObjectCount": 330,
+            "TotalObjectCount": 783,
+            "Metadata": {
+              "Title": "BANG!!!",
+              "title_unicode": "BANG!!!",
+              "Artist": "EGOIST",
+              "artist_unicode": "EGOIST",
+              "Author": {
+                "OnlineID": 8630988,
+                "Username": "-Hex-",
+                "CountryString": "Unknown"
+              },
+              "Source": "ビルディバイド -#000000-(コードブラック)",
+              "tags": "alba- build-divide -# 000000- code black op opening jpop j pop japanese giga gigap ギガp ギガ ryo supercell chelly female vocalist yumerios",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.4,
+              "ApproachRate": 8.4,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1729736/covers/cover@2x.jpg?1650898911",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1729736/covers/card@2x.jpg?1650898911",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1729736/covers/list@2x.jpg?1650898911"
+            }
+          }
+        },
+        {
+          "ID": 2662017,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 2662017,
+            "DifficultyName": "us",
+            "BPM": 160.0,
+            "Length": 168000.0,
+            "StarRating": 5.84,
+            "EndTimeObjectCount": 405,
+            "TotalObjectCount": 672,
+            "Metadata": {
+              "Title": "me & u (succducc bootleg)",
+              "title_unicode": "me & u (succducc bootleg)",
+              "Artist": "cassie",
+              "artist_unicode": "cassie",
+              "Author": {
+                "OnlineID": 702598,
+                "Username": "Spectator",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "and you mniam dapu dapulezatos dapuluous zyzyx ajamez jemzuu jeir jier jeiryagtama jieryagtama crowley sinnoh xinnoh bunnrei chara ster osu_gangster -plus- future bass electronic english pop airuei edm drum n bass dnb d&b jersey club electropop bad boy records dance remix wpcr-12448 cd 83981 ryan leslie nextselection atlanta club cassie ventura casandra elizabeth fine",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.4,
+              "ApproachRate": 9.4,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1281611/covers/cover@2x.jpg?1738924712",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1281611/covers/card@2x.jpg?1738924712",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1281611/covers/list@2x.jpg?1738924712"
+            }
+          }
+        },
+        {
+          "ID": 2453314,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 2453314,
+            "DifficultyName": "Overdose",
+            "BPM": 200.0,
+            "Length": 211000.0,
+            "StarRating": 5.95,
+            "EndTimeObjectCount": 508,
+            "TotalObjectCount": 1077,
+            "Metadata": {
+              "Title": "Kakuzetsu Thanatos",
+              "title_unicode": "隔絶≡タナトス",
+              "Artist": "Rohi feat. Kagamine Rin",
+              "artist_unicode": "ろひ feat. 鏡音リン",
+              "Author": {
+                "OnlineID": 829284,
+                "Username": "Bunnrei",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "featured artist fa rohi-p electronic japanese rei chara osu_gangster ster plus -plus- isolation≡thanatos isolation=thanatos kakuzetsu=thanatos ナツメ神楽 natsume kagura ぽかぽん pokapon ボーカロイド mappers' guild mpg vocaloid mg",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.1,
+              "OverallDifficulty": 9.5,
+              "ApproachRate": 9.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/100203/covers/cover@2x.jpg?1735803844",
+              "card@2x": "https://assets.ppy.sh/beatmaps/100203/covers/card@2x.jpg?1735803844",
+              "list@2x": "https://assets.ppy.sh/beatmaps/100203/covers/list@2x.jpg?1735803844"
+            }
+          }
+        },
+        {
+          "ID": 2656699,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 2656699,
+            "DifficultyName": "Overdose",
+            "BPM": 158.0,
+            "Length": 79000.0,
+            "StarRating": 5.22,
+            "EndTimeObjectCount": 193,
+            "TotalObjectCount": 458,
+            "Metadata": {
+              "Title": "Hijitsuzaikei Joshitachi wa Dou Surya Ii Desu ka?",
+              "title_unicode": "非実在系女子達はどうすりゃいいですか？",
+              "Artist": "Ayase Rie",
+              "artist_unicode": "綾瀬理恵",
+              "Author": {
+                "OnlineID": 4778689,
+                "Username": "-Luminate",
+                "CountryString": "Unknown"
+              },
+              "Source": "抜きゲーみたいな島に住んでる貧乳（わたし）はどうすりゃいいですか？",
+              "tags": "is the island utopia or dystopia? nukitashi qruppo eroge op opening visual novel vn video game japanese 拔作岛 ぬきたし nukige mitai na shima ni sunderu watashi wa dou surya ii desu ka? 金閉開羅巧夢 pop jpop j-pop ナガトサチ sachi nagato 浮丸つぼね 如月千幸 ukimaru tsubone chiyuki kisaragi",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 9.2,
+              "ApproachRate": 9.2,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1278683/covers/cover@2x.jpg?1706174178",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1278683/covers/card@2x.jpg?1706174178",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1278683/covers/list@2x.jpg?1706174178"
+            }
+          }
+        },
+        {
+          "ID": 4634727,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 4634727,
+            "DifficultyName": "creamy",
+            "BPM": 170.0,
+            "Length": 169000.0,
+            "StarRating": 6.03,
+            "EndTimeObjectCount": 376,
+            "TotalObjectCount": 788,
+            "Metadata": {
+              "Title": "macaron moon",
+              "title_unicode": "macaron moon",
+              "Artist": "YUC'e",
+              "artist_unicode": "YUC'e",
+              "Author": {
+                "OnlineID": 2150415,
+                "Username": "Nosuri",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "-momox osu!catch world cup 2024 cwc2024 cwc 2024 quarter finals qf hardrock3 hr3 electronic japanese instrumental future bass jcore j-core pop ゆーしえ fa featured artist",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 9.4,
+              "ApproachRate": 9.4,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2191179/covers/cover@2x.jpg?1719777780",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2191179/covers/card@2x.jpg?1719777780",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2191179/covers/list@2x.jpg?1719777780"
+            }
+          }
+        },
+        {
+          "ID": 4605328,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 4605328,
+            "DifficultyName": "Light Overdose",
+            "BPM": 175.0,
+            "Length": 276000.0,
+            "StarRating": 4.56,
+            "EndTimeObjectCount": 406,
+            "TotalObjectCount": 1075,
+            "Metadata": {
+              "Title": "Yumemiru Milky Way feat. Aitsuki Nakuru",
+              "title_unicode": "夢みるMilky Way feat. 藍月なくる",
+              "Artist": "Risa Yuzuki",
+              "artist_unicode": "Risa Yuzuki",
+              "Author": {
+                "OnlineID": 741613,
+                "Username": "Dika312",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "osu!catch world cup 2024 cwc2024 cwc qualifiers doubletime1 dt1 j-pop jpop pop japanese stellalude featured artist fa",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 3.8,
+              "OverallDifficulty": 8.8,
+              "ApproachRate": 8.8,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2180227/covers/cover@2x.jpg?1721096030",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2180227/covers/card@2x.jpg?1721096030",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2180227/covers/list@2x.jpg?1721096030"
+            }
+          }
+        },
+        {
+          "ID": 3754349,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 3754349,
+            "DifficultyName": "M0RU's Rain",
+            "BPM": 153.0,
+            "Length": 265000.0,
+            "StarRating": 3.8,
+            "EndTimeObjectCount": 384,
+            "TotalObjectCount": 1392,
+            "Metadata": {
+              "Title": "Midorigo Queen Bee",
+              "title_unicode": "嬰児クインビー",
+              "Artist": "-45",
+              "artist_unicode": "-45",
+              "Author": {
+                "OnlineID": 318565,
+                "Username": "Deif",
+                "CountryString": "Unknown"
+              },
+              "Source": "うみねこのなく頃に散",
+              "tags": "m0ru moru featured artist mappers' guild 07th expansion infant quimby eiji kuinbii amrita アムリタ d'va;;;;;;;;5 吉川明人 akito yoshikawa umineko no naku koro ni chiru when they cry furudo erika 古戸ヱリカ visual novel video game electronic instrumental",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 8.5,
+              "ApproachRate": 8.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1827134/covers/cover@2x.jpg?1676324772",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1827134/covers/card@2x.jpg?1676324772",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1827134/covers/list@2x.jpg?1676324772"
+            }
+          }
+        },
+        {
+          "ID": 4514214,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 4514214,
+            "DifficultyName": "Lunatic",
+            "BPM": 190.0,
+            "Length": 188000.0,
+            "StarRating": 4.36,
+            "EndTimeObjectCount": 422,
+            "TotalObjectCount": 884,
+            "Metadata": {
+              "Title": "Critical Cannonball (Extended ver.)",
+              "title_unicode": "Critical Cannonball (Extended ver.)",
+              "Artist": "Sephid",
+              "artist_unicode": "Sephid",
+              "Author": {
+                "OnlineID": 566276,
+                "Username": "Rocma",
+                "CountryString": "Unknown"
+              },
+              "Source": "東方輝針城　～ Double Dealing Character.",
+              "tags": "hardcore drumstep future core qf dt3 touhou th14 ddc imaizumi kagerou 今泉 影狼 instrumental electronic video game zun 上海アリス幻樂団 team shanghai alice osu!catch world cup cwc 2023 quarterfinals featured artist fa x_angelkawaii_x mappers' guild mpg mg 満月の竹林 mangetsu no chikurin bamboo forest of the full moon kishinjou 東方project 太田順也 jun'ya ota 東方音弾遊戯9コンピレーションアルバム ondan yuugi 9 compilation album 9th toho only bms festival レッツ・キャノン・ボール ネコノツカ nekonotsuka reitaisai 17",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 3.6,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2144024/covers/cover@2x.jpg?1722358715",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2144024/covers/card@2x.jpg?1722358715",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2144024/covers/list@2x.jpg?1722358715"
+            }
+          }
+        },
+        {
+          "ID": 4158972,
+          "Mods": "TB",
+          "BeatmapInfo": {
+            "OnlineID": 4158972,
+            "DifficultyName": "Du5t & Deif's Surge to Asgard",
+            "BPM": 200.0,
+            "Length": 339000.0,
+            "StarRating": 6.72,
+            "EndTimeObjectCount": 669,
+            "TotalObjectCount": 1998,
+            "Metadata": {
+              "Title": "Yggdrasil",
+              "title_unicode": "Yggdrasil",
+              "Artist": "Gram vs. Kobaryo",
+              "artist_unicode": "Gram vs. Kobaryo",
+              "Author": {
+                "OnlineID": 6053071,
+                "Username": "Du5t",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "dust idu5t idust deif cwc2023 cwc 2023 osu!catch world cup quarterfinals qf tb tiebreaker featured artist fa mappers' guild mpg mg dj genki versus the requiem psybient hi-tech hardcore speedcore gnkcd-004 gnkcd004 electronic instrumental",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 9.8,
+              "ApproachRate": 9.8,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2000386/covers/cover@2x.jpg?1687045308",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2000386/covers/card@2x.jpg?1687045308",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2000386/covers/list@2x.jpg?1687045308"
+            }
+          }
+        }
+      ],
+      "StartDate": "2025-07-12T18:02:57.7448893+00:00",
+      "Matches": []
+    }
+  ],
+  "Teams": [
+    {
+      "FullName": "Kaffu-",
+      "FlagName": "A",
+      "Acronym": "10681880",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "Cornet",
+      "FlagName": "B",
+      "Acronym": "18468376",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    }
+  ],
+  "Progressions": [],
+  "ChromaKeyWidth": 1024,
+  "PlayersPerTeam": 4,
+  "AutoProgressScreens": true,
+  "SplitMapPoolByMods": true,
+  "DisplayTeamSeeds": false
+}

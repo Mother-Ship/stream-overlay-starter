@@ -1,0 +1,2420 @@
+{
+  "Ruleset": {
+    "ShortName": "osu",
+    "Name": "osu!",
+    "InstantiationInfo": "osu.Game.Rulesets.Osu.OsuRuleset, osu.Game.Rulesets.Osu",
+    "LastAppliedDifficultyVersion": 20250306,
+    "Available": true
+  },
+  "Matches": [],
+  "Rounds": [
+    {
+      "Name": "OL",
+      "Description": "OL",
+      "BestOf": 9,
+      "BanCount": 1,
+      "Beatmaps": [
+        {
+          "ID": 4234684,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 4234684,
+            "DifficultyName": "Normal",
+            "BPM": 185.0,
+            "Length": 283000.0,
+            "StarRating": 6.78,
+            "EndTimeObjectCount": 264,
+            "TotalObjectCount": 1192,
+            "Metadata": {
+              "Title": "Yomei Senkoku",
+              "title_unicode": "余命宣告",
+              "Artist": "Harano Oni",
+              "artist_unicode": "波羅ノ鬼",
+              "Author": {
+                "OnlineID": 1634445,
+                "Username": "Dailycare",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "bwcbro16nm1 badlywoodcup barrier ro16 nm1",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2031675/covers/cover@2x.jpg?1692806426",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2031675/covers/card@2x.jpg?1692806426",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2031675/covers/list@2x.jpg?1692806426"
+            }
+          }
+        },
+        {
+          "ID": 3215636,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 3215636,
+            "DifficultyName": "Melancholy",
+            "BPM": 200.0,
+            "Length": 139000.0,
+            "StarRating": 6.81,
+            "EndTimeObjectCount": 97,
+            "TotalObjectCount": 1144,
+            "Metadata": {
+              "Title": "Gravesinger",
+              "title_unicode": "Gravesinger",
+              "Artist": "Shadow of Intent",
+              "artist_unicode": "Shadow of Intent",
+              "Author": {
+                "OnlineID": 6381153,
+                "Username": "ItsWinter",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "silence player",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 9.3,
+              "ApproachRate": 9.7,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1574930/covers/cover@2x.jpg?1633838462",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1574930/covers/card@2x.jpg?1633838462",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1574930/covers/list@2x.jpg?1633838462"
+            }
+          }
+        },
+        {
+          "ID": 5167680,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5167680,
+            "DifficultyName": "Ex",
+            "BPM": 208.0,
+            "Length": 196000.0,
+            "StarRating": 6.59,
+            "EndTimeObjectCount": 460,
+            "TotalObjectCount": 864,
+            "Metadata": {
+              "Title": "step by step",
+              "title_unicode": "step by step",
+              "Artist": "ABSOLUTE CASTAWAY",
+              "artist_unicode": "ABSOLUTE CASTAWAY",
+              "Author": {
+                "OnlineID": 4298072,
+                "Username": "iBell",
+                "CountryString": "Unknown"
+              },
+              "Source": "osu!catch World Cup 2024",
+              "tags": "bellicose clan2025 ol nm3 online china lan 2025 featured artist fa osu! original 中恵光城 mitsuki nakae 塚越雄一朗 yuichiro tsukagoshi jazz japanese swing mappers' guild mpg",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2388011/covers/cover@2x.jpg?1749997094",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2388011/covers/card@2x.jpg?1749997094",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2388011/covers/list@2x.jpg?1749997094"
+            }
+          }
+        },
+        {
+          "ID": 3636008,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 3636008,
+            "DifficultyName": "GYGY's Expert",
+            "BPM": 253.0,
+            "Length": 130000.0,
+            "StarRating": 6.95,
+            "EndTimeObjectCount": 254,
+            "TotalObjectCount": 615,
+            "Metadata": {
+              "Title": "Revulsion",
+              "title_unicode": "Revulsion",
+              "Artist": "Noah",
+              "artist_unicode": "Noah",
+              "Author": {
+                "OnlineID": 6990066,
+                "Username": "R3m",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "noah revulsion metal instrumental symphonic r3m foxy grandpa gygy shoyeu lecandy supav washedup player",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 3.5,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1423725/covers/cover@2x.jpg?1679086911",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1423725/covers/card@2x.jpg?1679086911",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1423725/covers/list@2x.jpg?1679086911"
+            }
+          }
+        },
+        {
+          "ID": 5163132,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5163132,
+            "DifficultyName": "Extra nerf.ver",
+            "BPM": 132.0,
+            "Length": 231000.0,
+            "StarRating": 4.93,
+            "EndTimeObjectCount": 128,
+            "TotalObjectCount": 868,
+            "Metadata": {
+              "Title": "agony",
+              "title_unicode": "agony",
+              "Artist": "KOTOKO",
+              "artist_unicode": "KOTOKO",
+              "Author": {
+                "OnlineID": 7825227,
+                "Username": "FcEazy",
+                "CountryString": "Unknown"
+              },
+              "Source": "神無月の巫女",
+              "tags": "jpop pop j-pop 中沢伴行 tomoyuki nakazawa kannazuki no miko destiny of shrine maiden japanese anime ed -kemsyt aranel flux3on bluirre mildly accurate silent rock fluxie ending apollo",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 8.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 8.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2386729/covers/cover@2x.jpg?1750000643",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2386729/covers/card@2x.jpg?1750000643",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2386729/covers/list@2x.jpg?1750000643"
+            }
+          }
+        },
+        {
+          "ID": 3522486,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 3522486,
+            "DifficultyName": "Showtime!",
+            "BPM": 172.0,
+            "Length": 191000.0,
+            "StarRating": 6.37,
+            "EndTimeObjectCount": 355,
+            "TotalObjectCount": 1010,
+            "Metadata": {
+              "Title": "TONDEMO-WONDERZ feat. echo",
+              "title_unicode": "トンデモワンダーズ feat. エコ",
+              "Artist": "sasakure.UK",
+              "artist_unicode": "sasakure.UK",
+              "Author": {
+                "OnlineID": 7627157,
+                "Username": "flake",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "tondemo wonders hatsune miku vocaloid project sekai colorful stage wonderlands x showtime project sekai wonder magical",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.6,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.2,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1541081/covers/cover@2x.jpg?1650182445",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1541081/covers/card@2x.jpg?1650182445",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1541081/covers/list@2x.jpg?1650182445"
+            }
+          }
+        },
+        {
+          "ID": 4176525,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 4176525,
+            "DifficultyName": "insane",
+            "BPM": 202.0,
+            "Length": 138000.0,
+            "StarRating": 5.55,
+            "EndTimeObjectCount": 98,
+            "TotalObjectCount": 547,
+            "Metadata": {
+              "Title": "minimum",
+              "title_unicode": "みにまむ",
+              "Artist": "MIMI feat. wanko",
+              "artist_unicode": "MIMI feat. わん子",
+              "Author": {
+                "OnlineID": 1603923,
+                "Username": "Delis",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 8.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2007831/covers/cover@2x.jpg?1688909545",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2007831/covers/card@2x.jpg?1688909545",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2007831/covers/list@2x.jpg?1688909545"
+            }
+          }
+        },
+        {
+          "ID": 4758339,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 4758339,
+            "DifficultyName": "Break it down!!!",
+            "BPM": 130.0,
+            "Length": 168000.0,
+            "StarRating": 6.14,
+            "EndTimeObjectCount": 347,
+            "TotalObjectCount": 859,
+            "Metadata": {
+              "Title": "STICKER!!!",
+              "title_unicode": "STICKER!!!",
+              "Artist": "meiyo",
+              "artist_unicode": "meiyo",
+              "Author": {
+                "OnlineID": 2439822,
+                "Username": "Rtyzen",
+                "CountryString": "Unknown"
+              },
+              "Source": "貼りまわれ! こいぬ",
+              "tags": "dm dm9 deutsche meisterschaft ro16hd3 harimaware! koinu stick it on around!",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 3.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.8,
+              "ApproachRate": 9.2,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2239141/covers/cover@2x.jpg?1727087458",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2239141/covers/card@2x.jpg?1727087458",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2239141/covers/list@2x.jpg?1727087458"
+            }
+          }
+        },
+        {
+          "ID": 3841928,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 3841928,
+            "DifficultyName": "OK MR. SUNSHINE",
+            "BPM": 106.0,
+            "Length": 260000.0,
+            "StarRating": 6.31,
+            "EndTimeObjectCount": 442,
+            "TotalObjectCount": 1230,
+            "Metadata": {
+              "Title": "Katamari on the Wings",
+              "title_unicode": "塊オンザウィングス",
+              "Artist": "Oohashi Takuya (from Sukima Switch)",
+              "artist_unicode": "大橋卓弥（from スキマスイッチ）",
+              "Author": {
+                "OnlineID": 3053382,
+                "Username": "melon boy",
+                "CountryString": "Unknown"
+              },
+              "Source": "塊魂TRIBUTE",
+              "tags": "owc2022 ro32 nm1 fuccho sagon verychill owc osu! world cup 2022 katamari damacy tribute forever japanese video game jpop pop",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.5,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1867650/covers/cover@2x.jpg?1704639389",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1867650/covers/card@2x.jpg?1704639389",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1867650/covers/list@2x.jpg?1704639389"
+            }
+          }
+        },
+        {
+          "ID": 5167658,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 5167658,
+            "DifficultyName": "GIGA COLLAB (CS4.3)",
+            "BPM": 135.0,
+            "Length": 181000.0,
+            "StarRating": 6.03,
+            "EndTimeObjectCount": 400,
+            "TotalObjectCount": 781,
+            "Metadata": {
+              "Title": "The Master",
+              "title_unicode": "The Master",
+              "Artist": "Teminite & Boom Kitty",
+              "artist_unicode": "Teminite & Boom Kitty",
+              "Author": {
+                "OnlineID": 959763,
+                "Username": "Flask",
+                "CountryString": "Unknown"
+              },
+              "Source": "Beat Saber",
+              "tags": "clan2025 ol hr2 online china lan 2025 kkip kkipalt -kevincela- kevincela captin1 [-evil-] evil- scorf",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 4.3,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.3,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2388002/covers/cover@2x.jpg?1749996259",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2388002/covers/card@2x.jpg?1749996259",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2388002/covers/list@2x.jpg?1749996259"
+            }
+          }
+        },
+        {
+          "ID": 280034,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 280034,
+            "DifficultyName": "Another",
+            "BPM": 180.0,
+            "Length": 218000.0,
+            "StarRating": 6.03,
+            "EndTimeObjectCount": 322,
+            "TotalObjectCount": 1137,
+            "Metadata": {
+              "Title": "Kono Hoshi de....",
+              "title_unicode": "この星で・・・。",
+              "Artist": "Camellia",
+              "artist_unicode": "かめりあ",
+              "Author": {
+                "OnlineID": 643394,
+                "Username": "Snow Note",
+                "CountryString": "Unknown"
+              },
+              "Source": "ゆめにっき",
+              "tags": "yume nikki 夢日記 窓付き featured artist",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 9.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/106693/covers/cover@2x.jpg?1622066399",
+              "card@2x": "https://assets.ppy.sh/beatmaps/106693/covers/card@2x.jpg?1622066399",
+              "list@2x": "https://assets.ppy.sh/beatmaps/106693/covers/list@2x.jpg?1622066399"
+            }
+          }
+        },
+        {
+          "ID": 3731690,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 3731690,
+            "DifficultyName": "KoldNoodl's Insane",
+            "BPM": 175.0,
+            "Length": 262000.0,
+            "StarRating": 4.91,
+            "EndTimeObjectCount": 359,
+            "TotalObjectCount": 829,
+            "Metadata": {
+              "Title": "Authentic symphony",
+              "title_unicode": "Authentic symphony",
+              "Artist": "ChouCho",
+              "artist_unicode": "ちょうちょ",
+              "Author": {
+                "OnlineID": 6055351,
+                "Username": "gazimal",
+                "CountryString": "Unknown"
+              },
+              "Source": "ましろ色シンフォニー -The color of lovers-",
+              "tags": "op opening full version japanese pop mashiroiro anime koldnoodl jpop eroge vn visual novel",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 8.8,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1804096/covers/cover@2x.jpg?1660249870",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1804096/covers/card@2x.jpg?1660249870",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1804096/covers/list@2x.jpg?1660249870"
+            }
+          }
+        },
+        {
+          "ID": 3245458,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 3245458,
+            "DifficultyName": "KKip's Insane",
+            "BPM": 153.0,
+            "Length": 238000.0,
+            "StarRating": 4.66,
+            "EndTimeObjectCount": 302,
+            "TotalObjectCount": 1071,
+            "Metadata": {
+              "Title": "Amazing Mirage (Extended)",
+              "title_unicode": "Amazing Mirage (Extended)",
+              "Artist": "lapix",
+              "artist_unicode": "lapix",
+              "Author": {
+                "OnlineID": 3621552,
+                "Username": "Chaoslitz",
+                "CountryString": "Unknown"
+              },
+              "Source": "beatmania IIDX 24 SINOBUZ",
+              "tags": "hitech fullon original soundtrack ost electronic instrumental pho cubby kkip kkipalt bemani",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.5,
+              "CircleSize": 3.8,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 8.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/608572/covers/cover@2x.jpg?1636429147",
+              "card@2x": "https://assets.ppy.sh/beatmaps/608572/covers/card@2x.jpg?1636429147",
+              "list@2x": "https://assets.ppy.sh/beatmaps/608572/covers/list@2x.jpg?1636429147"
+            }
+          }
+        },
+        {
+          "ID": 5167768,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 5167768,
+            "DifficultyName": "Wandering",
+            "BPM": 137.0,
+            "Length": 192000.0,
+            "StarRating": 4.73,
+            "EndTimeObjectCount": 349,
+            "TotalObjectCount": 781,
+            "Metadata": {
+              "Title": "Labyrinth",
+              "title_unicode": "ラビリンス",
+              "Artist": "hockrockb",
+              "artist_unicode": "hockrockb",
+              "Author": {
+                "OnlineID": 2439822,
+                "Username": "Rtyzen",
+                "CountryString": "Unknown"
+              },
+              "Source": "鴨乃橋ロンの禁断推理 2nd Season",
+              "tags": "clan2025 ol dt3 online china lan 2025 kamonohashi ron no kindan suiri 2nd season ron kamonohashi's forbidden deductions season 2",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.5,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 8.7,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2388046/covers/cover@2x.jpg?1750000138",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2388046/covers/card@2x.jpg?1750000138",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2388046/covers/list@2x.jpg?1750000138"
+            }
+          }
+        },
+        {
+          "ID": 4677651,
+          "Mods": "TB",
+          "BeatmapInfo": {
+            "OnlineID": 4677651,
+            "DifficultyName": "Whispers of the Abyss",
+            "BPM": 175.0,
+            "Length": 386000.0,
+            "StarRating": 6.91,
+            "EndTimeObjectCount": 966,
+            "TotalObjectCount": 1599,
+            "Metadata": {
+              "Title": "Xulthuilic Ceilidh (feat. Lenn)",
+              "title_unicode": "Xulthuílic Cèilidh (feat. Lenn)",
+              "Artist": "roer",
+              "artist_unicode": "roər",
+              "Author": {
+                "OnlineID": 12857766,
+                "Username": "Jaylen",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "electronic english celtic neurofunk artcore hitech bossa nova neuro nation 01 refractal roer daoski perseus",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2133629/covers/cover@2x.jpg?1736272703",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2133629/covers/card@2x.jpg?1736272703",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2133629/covers/list@2x.jpg?1736272703"
+            }
+          }
+        }
+      ],
+      "StartDate": "2025-06-20T23:05:55.1961035+08:00",
+      "Matches": []
+    },
+    {
+      "Name": "D1",
+      "Description": "D1",
+      "BestOf": 11,
+      "BanCount": 1,
+      "Beatmaps": [
+        {
+          "ID": 944864,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 944864,
+            "DifficultyName": "Broccoly's Extra",
+            "BPM": 236.0,
+            "Length": 272000.0,
+            "StarRating": 7.11,
+            "EndTimeObjectCount": 512,
+            "TotalObjectCount": 1163,
+            "Metadata": {
+              "Title": "Packet Hero",
+              "title_unicode": "パケットヒーロー",
+              "Artist": "sana",
+              "artist_unicode": "鎖那",
+              "Author": {
+                "OnlineID": 3053382,
+                "Username": "Fuccho",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "broccoly -tochi [_joey_] joey vinxis rokkea mikii toybot evilelvis pho len fast deetz さな maretu 極悪p gokuaku-p paketto hiirou utaite vocaloid hatsune miku 初音ミク (un)sentimental unsentimental spica",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 9.1,
+              "ApproachRate": 9.7,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/404910/covers/cover@2x.jpg?1650638085",
+              "card@2x": "https://assets.ppy.sh/beatmaps/404910/covers/card@2x.jpg?1650638085",
+              "list@2x": "https://assets.ppy.sh/beatmaps/404910/covers/list@2x.jpg?1650638085"
+            }
+          }
+        },
+        {
+          "ID": 5207681,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5207681,
+            "DifficultyName": "Eternal",
+            "BPM": 191.0,
+            "Length": 153000.0,
+            "StarRating": 7.17,
+            "EndTimeObjectCount": 156,
+            "TotalObjectCount": 1233,
+            "Metadata": {
+              "Title": "Invitation from Dreamland",
+              "title_unicode": "Invitation from Dreamland",
+              "Artist": "Raimukun",
+              "artist_unicode": "Raimukun",
+              "Author": {
+                "OnlineID": 7825227,
+                "Username": "FcEazy",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "clan2025 d1 nm2 day1 china lan 2025 aidanbh123",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401489/covers/cover@2x.jpg?1752250719",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401489/covers/card@2x.jpg?1752250719",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401489/covers/list@2x.jpg?1752250719"
+            }
+          }
+        },
+        {
+          "ID": 5207683,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5207683,
+            "DifficultyName": "Tourney ver.",
+            "BPM": 145.0,
+            "Length": 173000.0,
+            "StarRating": 6.73,
+            "EndTimeObjectCount": 290,
+            "TotalObjectCount": 1100,
+            "Metadata": {
+              "Title": "On Seeking U",
+              "title_unicode": "On Seeking U",
+              "Artist": "RD-Sounds feat. Meramipop",
+              "artist_unicode": "RD-Sounds feat. Meramipop",
+              "Author": {
+                "OnlineID": 7825227,
+                "Username": "FcEazy",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "clan2025 d1 nm3 day1 china lan 2025",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 3.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401491/covers/cover@2x.jpg?1752251016",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401491/covers/card@2x.jpg?1752251016",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401491/covers/list@2x.jpg?1752251016"
+            }
+          }
+        },
+        {
+          "ID": 5206811,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5206811,
+            "DifficultyName": "Valiant",
+            "BPM": 180.0,
+            "Length": 175000.0,
+            "StarRating": 6.67,
+            "EndTimeObjectCount": 403,
+            "TotalObjectCount": 976,
+            "Metadata": {
+              "Title": "MONONATI",
+              "title_unicode": "ΜΟΝΟΠΑΤΙ",
+              "Artist": "Sephid et al.",
+              "artist_unicode": "Sephid et al.",
+              "Author": {
+                "OnlineID": 918297,
+                "Username": "Realazy",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.4,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401178/covers/cover@2x.jpg?1752209215",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401178/covers/card@2x.jpg?1752209215",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401178/covers/list@2x.jpg?1752209215"
+            }
+          }
+        },
+        {
+          "ID": 5205913,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5205913,
+            "DifficultyName": "Peanut Butter Jelly Time",
+            "BPM": 232.0,
+            "Length": 219000.0,
+            "StarRating": 7.28,
+            "EndTimeObjectCount": 326,
+            "TotalObjectCount": 1252,
+            "Metadata": {
+              "Title": "Free L-Town (Sped Up Ver.)",
+              "title_unicode": "Free L-Town (Sped Up Ver.)",
+              "Artist": "Spongebob Squarewave",
+              "artist_unicode": "Spongebob Squarewave",
+              "Author": {
+                "OnlineID": 2166762,
+                "Username": "Silverboxer",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "mashcore happy hardcore elton john your song buckwheat boyz dj chipman english electronic",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.5,
+              "ApproachRate": 9.8,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2400868/covers/cover@2x.jpg?1752161570",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2400868/covers/card@2x.jpg?1752161570",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2400868/covers/list@2x.jpg?1752161570"
+            }
+          }
+        },
+        {
+          "ID": 24023,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 24023,
+            "DifficultyName": "Gold",
+            "BPM": 170.0,
+            "Length": 137000.0,
+            "StarRating": 5.53,
+            "EndTimeObjectCount": 98,
+            "TotalObjectCount": 356,
+            "Metadata": {
+              "Title": "Chocobo",
+              "title_unicode": "Chocobo",
+              "Artist": "Hyadain",
+              "artist_unicode": "Hyadain",
+              "Author": {
+                "OnlineID": 5960,
+                "Username": "mtmcl",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "Collab Collaboration  buraimaster1234 buraimaster burai kingcobra kingcobra52 James awp Mifune Mifune24 Rolled",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 6.0,
+              "OverallDifficulty": 6.0,
+              "ApproachRate": 6.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/4392/covers/cover@2x.jpg?1622021938",
+              "card@2x": "https://assets.ppy.sh/beatmaps/4392/covers/card@2x.jpg?1622021938",
+              "list@2x": "https://assets.ppy.sh/beatmaps/4392/covers/list@2x.jpg?1622021938"
+            }
+          }
+        },
+        {
+          "ID": 5207526,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 5207526,
+            "DifficultyName": "beyond the azure skies",
+            "BPM": 192.0,
+            "Length": 173000.0,
+            "StarRating": 6.84,
+            "EndTimeObjectCount": 446,
+            "TotalObjectCount": 780,
+            "Metadata": {
+              "Title": "rezehv",
+              "title_unicode": "rezehv",
+              "Artist": "Link\"0",
+              "artist_unicode": "Link\"0",
+              "Author": {
+                "OnlineID": 1634445,
+                "Username": "Dailycare",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "uto",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 9.2,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401422/covers/cover@2x.jpg?0",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401422/covers/card@2x.jpg?0",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401422/covers/list@2x.jpg?0"
+            }
+          }
+        },
+        {
+          "ID": 5207531,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 5207531,
+            "DifficultyName": "As Heaven",
+            "BPM": 170.0,
+            "Length": 137000.0,
+            "StarRating": 5.66,
+            "EndTimeObjectCount": 262,
+            "TotalObjectCount": 773,
+            "Metadata": {
+              "Title": "Angel dust (2016 Radio Mix)",
+              "title_unicode": "Angel dust (2016 Radio Mix)",
+              "Artist": "LV.4",
+              "artist_unicode": "LV.4",
+              "Author": {
+                "OnlineID": 8991722,
+                "Username": "Atipir",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "fa featured artist instrumental electronic techno",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.5,
+              "OverallDifficulty": 8.5,
+              "ApproachRate": 8.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401426/covers/cover@2x.jpg?1752244679",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401426/covers/card@2x.jpg?1752244679",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401426/covers/list@2x.jpg?1752244679"
+            }
+          }
+        },
+        {
+          "ID": 5205642,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 5205642,
+            "DifficultyName": "Melvious' Fortissimo",
+            "BPM": 180.0,
+            "Length": 161000.0,
+            "StarRating": 6.43,
+            "EndTimeObjectCount": 338,
+            "TotalObjectCount": 1108,
+            "Metadata": {
+              "Title": "Silver Eclipse",
+              "title_unicode": "Silver Eclipse",
+              "Artist": "ginkiha",
+              "artist_unicode": "ginkiha",
+              "Author": {
+                "OnlineID": 12091109,
+                "Username": "melwoine",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2400758/covers/cover@2x.jpg?1752145258",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2400758/covers/card@2x.jpg?1752145258",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2400758/covers/list@2x.jpg?1752145258"
+            }
+          }
+        },
+        {
+          "ID": 5207221,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 5207221,
+            "DifficultyName": "SHD",
+            "BPM": 124.0,
+            "Length": 127000.0,
+            "StarRating": 6.71,
+            "EndTimeObjectCount": 172,
+            "TotalObjectCount": 636,
+            "Metadata": {
+              "Title": "Ten, Sen, Men, Rittai",
+              "title_unicode": "点、線、面、立体",
+              "Artist": "sound piercer",
+              "artist_unicode": "sound piercer",
+              "Author": {
+                "OnlineID": 3072921,
+                "Username": "Callionet",
+                "CountryString": "Unknown"
+              },
+              "Source": "PABAT! - PArty Be-music ArT! - 2013 seasons",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.5,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.2,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401336/covers/cover@2x.jpg?1752233641",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401336/covers/card@2x.jpg?1752233641",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401336/covers/list@2x.jpg?1752233641"
+            }
+          }
+        },
+        {
+          "ID": 5207671,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 5207671,
+            "DifficultyName": "EXTRA",
+            "BPM": 198.0,
+            "Length": 217000.0,
+            "StarRating": 6.71,
+            "EndTimeObjectCount": 263,
+            "TotalObjectCount": 1024,
+            "Metadata": {
+              "Title": "Worst Regret",
+              "title_unicode": "ワーストリグレット",
+              "Artist": "youman",
+              "artist_unicode": "youまん",
+              "Author": {
+                "OnlineID": 9704802,
+                "Username": "zekk",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "japanese rock pop",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.3,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401483/covers/cover@2x.jpg?1752250164",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401483/covers/card@2x.jpg?1752250164",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401483/covers/list@2x.jpg?1752250164"
+            }
+          }
+        },
+        {
+          "ID": 776951,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 776951,
+            "DifficultyName": "The World",
+            "BPM": 180.0,
+            "Length": 172000.0,
+            "StarRating": 6.35,
+            "EndTimeObjectCount": 12,
+            "TotalObjectCount": 1018,
+            "Metadata": {
+              "Title": "Night of Knights",
+              "title_unicode": "ナイト・オブ・ナイツ",
+              "Artist": "beatMARIO",
+              "artist_unicode": "ビートまりお",
+              "Author": {
+                "OnlineID": 869782,
+                "Username": "alacat",
+                "CountryString": "Unknown"
+              },
+              "Source": "東方Project",
+              "tags": "guy sionkotori iyasine n_a_s_y_a nasya zun touhou kaeidzuka 東方花映塚 ～ phantasmagoria of flower view. 十六夜咲夜 izayoi sakuya フラワリングナイト flowering night th09 上海アリス幻樂団 team shanghai alice 花詠束 -hanataba- unionest.net",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 10.0,
+              "ApproachRate": 9.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/352570/covers/cover@2x.jpg?1650634611",
+              "card@2x": "https://assets.ppy.sh/beatmaps/352570/covers/card@2x.jpg?1650634611",
+              "list@2x": "https://assets.ppy.sh/beatmaps/352570/covers/list@2x.jpg?1650634611"
+            }
+          }
+        },
+        {
+          "ID": 5202095,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 5202095,
+            "DifficultyName": "Echoes",
+            "BPM": 165.0,
+            "Length": 139000.0,
+            "StarRating": 6.23,
+            "EndTimeObjectCount": 265,
+            "TotalObjectCount": 719,
+            "Metadata": {
+              "Title": "Sfir'elle ~ la novella ~",
+              "title_unicode": "Sfir'ellë ~ la novella ~",
+              "Artist": "Kurokotei as Lidelle + eili",
+              "artist_unicode": "黒皇帝 as Lidelle + eili",
+              "Author": {
+                "OnlineID": 1943309,
+                "Username": "Acylica",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.8,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2399876/covers/cover@2x.jpg?1752027650",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2399876/covers/card@2x.jpg?1752027650",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2399876/covers/list@2x.jpg?1752027650"
+            }
+          }
+        },
+        {
+          "ID": 3613812,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 3613812,
+            "DifficultyName": "iljaaz's extra",
+            "BPM": 126.0,
+            "Length": 139000.0,
+            "StarRating": 6.26,
+            "EndTimeObjectCount": 249,
+            "TotalObjectCount": 776,
+            "Metadata": {
+              "Title": "eth ken",
+              "title_unicode": "eth剣",
+              "Artist": "tarolabo",
+              "artist_unicode": "tarolabo",
+              "Author": {
+                "OnlineID": 4966334,
+                "Username": "DeviousPanda",
+                "CountryString": "Unknown"
+              },
+              "Source": "THE BMS OF FIGHTERS 2010 -THE EVOLUTION OF WAR-",
+              "tags": "electronic instrumental video game team pink bokken fusion 浪漫映像制作倶楽部 dodome magenta ktgster iljaaz keqing down zetera sala-",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.2,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1765453/covers/cover@2x.jpg?1661776432",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1765453/covers/card@2x.jpg?1661776432",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1765453/covers/list@2x.jpg?1661776432"
+            }
+          }
+        },
+        {
+          "ID": 5207497,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 5207497,
+            "DifficultyName": "God bless",
+            "BPM": 150.0,
+            "Length": 269000.0,
+            "StarRating": 5.21,
+            "EndTimeObjectCount": 400,
+            "TotalObjectCount": 1249,
+            "Metadata": {
+              "Title": "God knows...",
+              "title_unicode": "God knows...",
+              "Artist": "Suzumiya Haruhi (CV: Hirano Aya)",
+              "artist_unicode": "涼宮ハルヒ (CV: 平野綾)",
+              "Author": {
+                "OnlineID": 9936528,
+                "Username": "Kudou Chitose",
+                "CountryString": "Unknown"
+              },
+              "Source": "涼宮ハルヒの憂鬱",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 8.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401413/covers/cover@2x.jpg?1752243022",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401413/covers/card@2x.jpg?1752243022",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401413/covers/list@2x.jpg?1752243022"
+            }
+          }
+        },
+        {
+          "ID": 2800663,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 2800663,
+            "DifficultyName": "deppy's insane_",
+            "BPM": 170.0,
+            "Length": 253000.0,
+            "StarRating": 4.3,
+            "EndTimeObjectCount": 303,
+            "TotalObjectCount": 890,
+            "Metadata": {
+              "Title": "snow irony_",
+              "title_unicode": "snow irony_",
+              "Artist": "Maison book girl",
+              "artist_unicode": "Maison book girl",
+              "Author": {
+                "OnlineID": 5875419,
+                "Username": "newton-",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "nagaraia airiesu deppyforce bath room best album \"fiction\" 矢川葵 yagawa aoi コショージメグミ koshouji koshoji coshoji coshouji megumi 井上唯 inoue yui 和田輪 wada rin tokumajapan japanese pop jpop idol",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 7.0,
+              "ApproachRate": 7.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1351876/covers/cover@2x.jpg?1650706483",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1351876/covers/card@2x.jpg?1650706483",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1351876/covers/list@2x.jpg?1650706483"
+            }
+          }
+        },
+        {
+          "ID": 5201150,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 5201150,
+            "DifficultyName": "FULFILL",
+            "BPM": 175.0,
+            "Length": 177000.0,
+            "StarRating": 5.0,
+            "EndTimeObjectCount": 318,
+            "TotalObjectCount": 870,
+            "Metadata": {
+              "Title": "CHARON (DJ SEVEN PnB REMIX)",
+              "title_unicode": "カロン (DJ SEVEN PnB Refix)",
+              "Artist": "NEGOTO",
+              "artist_unicode": "ねごと",
+              "Author": {
+                "OnlineID": 3914271,
+                "Username": "maot",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "ex japanese pop rock remix",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.5,
+              "ApproachRate": 9.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2399539/covers/cover@2x.jpg?1752256250",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2399539/covers/card@2x.jpg?1752256250",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2399539/covers/list@2x.jpg?1752256250"
+            }
+          }
+        },
+        {
+          "ID": 2719893,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 2719893,
+            "DifficultyName": "Utopia",
+            "BPM": 166.0,
+            "Length": 214000.0,
+            "StarRating": 4.99,
+            "EndTimeObjectCount": 255,
+            "TotalObjectCount": 1268,
+            "Metadata": {
+              "Title": "w/WWW feat. Hoshimiya Toto",
+              "title_unicode": "w/WWW feat. 星宮とと",
+              "Artist": "Kijibato",
+              "artist_unicode": "Kijibato",
+              "Author": {
+                "OnlineID": 4420014,
+                "Username": "Elcheer",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "my usual box owc o!wc osu world cup 2020 grand finals grandfinals gf dt2 pop house hardcore future bass electronic japanese",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 8.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1312343/covers/cover@2x.jpg?1645777427",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1312343/covers/card@2x.jpg?1645777427",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1312343/covers/list@2x.jpg?1645777427"
+            }
+          }
+        },
+        {
+          "ID": 5203291,
+          "Mods": "TB",
+          "BeatmapInfo": {
+            "OnlineID": 5203291,
+            "DifficultyName": "Fractured",
+            "BPM": 190.0,
+            "Length": 360000.0,
+            "StarRating": 7.16,
+            "EndTimeObjectCount": 1254,
+            "TotalObjectCount": 2167,
+            "Metadata": {
+              "Title": "Echoes of Memoria",
+              "title_unicode": "Echoes of Memoria",
+              "Artist": "Ludicin",
+              "artist_unicode": "Ludicin",
+              "Author": {
+                "OnlineID": 2391299,
+                "Username": "[ Drop ]",
+                "CountryString": "Unknown"
+              },
+              "Source": "The Perennial 2024",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2400184/covers/cover@2x.jpg?1752045435",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2400184/covers/card@2x.jpg?1752045435",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2400184/covers/list@2x.jpg?1752045435"
+            }
+          }
+        }
+      ],
+      "StartDate": "2025-07-11T17:52:18.3840627+00:00",
+      "Matches": []
+    },
+    {
+      "Name": "D2",
+      "Description": "D2",
+      "BestOf": 9,
+      "BanCount": 1,
+      "Beatmaps": [
+        {
+          "ID": 5208663,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5208663,
+            "DifficultyName": "Collab Extra",
+            "BPM": 190.0,
+            "Length": 270000.0,
+            "StarRating": 7.38,
+            "EndTimeObjectCount": 459,
+            "TotalObjectCount": 1370,
+            "Metadata": {
+              "Title": "Rally Go Round",
+              "title_unicode": "Rally Go Round",
+              "Artist": "LiSA",
+              "artist_unicode": "LiSA",
+              "Author": {
+                "OnlineID": 3545323,
+                "Username": "bad boy",
+                "CountryString": "Unknown"
+              },
+              "Source": "Nisekoi:",
+              "tags": "nisekoi: ニセコイ: season two second 2 opening op full version anime j pop j-pop jpop j-rock jrock wen teacchyyy n h a t fanboyyou",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401853/covers/cover@2x.jpg?1752311292",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401853/covers/card@2x.jpg?1752311292",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401853/covers/list@2x.jpg?1752311292"
+            }
+          }
+        },
+        {
+          "ID": 5209081,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5209081,
+            "DifficultyName": "Heaven's Pride",
+            "BPM": 210.0,
+            "Length": 229000.0,
+            "StarRating": 7.75,
+            "EndTimeObjectCount": 314,
+            "TotalObjectCount": 2443,
+            "Metadata": {
+              "Title": "Hellride",
+              "title_unicode": "Hellride",
+              "Artist": "Keep of Kalessin",
+              "artist_unicode": "Keep of Kalessin",
+              "Author": {
+                "OnlineID": 10772580,
+                "Username": "ravensong",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "melodic death black metal english",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.6,
+              "ApproachRate": 9.8,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401981/covers/cover@2x.jpg?1752331740",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401981/covers/card@2x.jpg?1752331740",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401981/covers/list@2x.jpg?1752331740"
+            }
+          }
+        },
+        {
+          "ID": 5209054,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5209054,
+            "DifficultyName": "Empyrean Duality",
+            "BPM": 152.0,
+            "Length": 151000.0,
+            "StarRating": 7.14,
+            "EndTimeObjectCount": 354,
+            "TotalObjectCount": 805,
+            "Metadata": {
+              "Title": "Tendou Musou no Homura",
+              "title_unicode": "天道無想ノ焔",
+              "Artist": "qfeileadh feat. Risa Kodaka",
+              "artist_unicode": "qfeileadh feat. 小鷹りさ",
+              "Author": {
+                "OnlineID": 7354729,
+                "Username": "Petal",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.2,
+              "OverallDifficulty": 9.4,
+              "ApproachRate": 9.8,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401973/covers/cover@2x.jpg?1752331362",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401973/covers/card@2x.jpg?1752331362",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401973/covers/list@2x.jpg?1752331362"
+            }
+          }
+        },
+        {
+          "ID": 3333703,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 3333703,
+            "DifficultyName": "Halgoh x Sharu",
+            "BPM": 180.0,
+            "Length": 140000.0,
+            "StarRating": 6.98,
+            "EndTimeObjectCount": 500,
+            "TotalObjectCount": 904,
+            "Metadata": {
+              "Title": "ILLEGAL LEGACY",
+              "title_unicode": "ILLEGAL LEGACY",
+              "Artist": "seatrus",
+              "artist_unicode": "seatrus",
+              "Author": {
+                "OnlineID": 4109923,
+                "Username": "Halgoh",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "owc2021gfnm4",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.6,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.6,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1633224/covers/cover@2x.jpg?1639980055",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1633224/covers/card@2x.jpg?1639980055",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1633224/covers/list@2x.jpg?1639980055"
+            }
+          }
+        },
+        {
+          "ID": 252238,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 252238,
+            "DifficultyName": "Scorpiour",
+            "BPM": 260.0,
+            "Length": 385000.0,
+            "StarRating": 7.56,
+            "EndTimeObjectCount": 727,
+            "TotalObjectCount": 1803,
+            "Metadata": {
+              "Title": "IMAGE -MATERIAL- <Version 0>",
+              "title_unicode": "IMAGE -MATERIAL- <Version 0>",
+              "Artist": "Tatsh",
+              "artist_unicode": "Tatsh",
+              "Author": {
+                "OnlineID": 867259,
+                "Username": "Scorpiour",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "firce777 reflec beat",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 10.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/93523/covers/cover@2x.jpg?1650616896",
+              "card@2x": "https://assets.ppy.sh/beatmaps/93523/covers/card@2x.jpg?1650616896",
+              "list@2x": "https://assets.ppy.sh/beatmaps/93523/covers/list@2x.jpg?1650616896"
+            }
+          }
+        },
+        {
+          "ID": 5209021,
+          "Mods": "NM",
+          "BeatmapInfo": {
+            "OnlineID": 5209021,
+            "DifficultyName": "nemunemunyanko",
+            "BPM": 160.0,
+            "Length": 152000.0,
+            "StarRating": 6.2,
+            "EndTimeObjectCount": 224,
+            "TotalObjectCount": 986,
+            "Metadata": {
+              "Title": "DENNO MIENMIEN MAO",
+              "title_unicode": "電脳眠眠猫",
+              "Artist": "momone chinoi",
+              "artist_unicode": "桃寝ちのい",
+              "Author": {
+                "OnlineID": 2849992,
+                "Username": "Garden",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "てんしさまのいうとおり tenshi-sama no iu toori as tenshi-sama says electronic japanese なみぐる namigroove dian nao mian mian mao",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 6.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401960/covers/cover@2x.jpg?1752329675",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401960/covers/card@2x.jpg?1752329675",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401960/covers/list@2x.jpg?1752329675"
+            }
+          }
+        },
+        {
+          "ID": 5111775,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 5111775,
+            "DifficultyName": "Egoistic Fumo Drip",
+            "BPM": 210.0,
+            "Length": 195000.0,
+            "StarRating": 7.32,
+            "EndTimeObjectCount": 202,
+            "TotalObjectCount": 1048,
+            "Metadata": {
+              "Title": "Ego",
+              "title_unicode": "エゴ",
+              "Artist": "BUTAOTOME",
+              "artist_unicode": "豚乙女",
+              "Author": {
+                "OnlineID": 7989480,
+                "Username": "_xyliac",
+                "CountryString": "Unknown"
+              },
+              "Source": "東方妖々夢　～ Perfect Cherry Blossom.",
+              "tags": "ranko ランコ lazer grand arena lga2025 w1 hd1",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 3.8,
+              "OverallDifficulty": 9.5,
+              "ApproachRate": 9.1,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2369251/covers/cover@2x.jpg?1749529823",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2369251/covers/card@2x.jpg?1749529823",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2369251/covers/list@2x.jpg?1749529823"
+            }
+          }
+        },
+        {
+          "ID": 5207529,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 5207529,
+            "DifficultyName": "Smite",
+            "BPM": 198.0,
+            "Length": 215000.0,
+            "StarRating": 6.59,
+            "EndTimeObjectCount": 217,
+            "TotalObjectCount": 1026,
+            "Metadata": {
+              "Title": "Dream Killer",
+              "title_unicode": "ドリームキラー",
+              "Artist": "Kairiki bear",
+              "artist_unicode": "かいりきベア",
+              "Author": {
+                "OnlineID": 11194087,
+                "Username": "Ixcors",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "hd2 reading vocaloid 初音ミク hatsune miku waka わか imbk imitation gallery イミテーシヨンギャラリー jrock rock japanese",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.1,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 8.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401424/covers/cover@2x.jpg?1752259150",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401424/covers/card@2x.jpg?1752259150",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401424/covers/list@2x.jpg?1752259150"
+            }
+          }
+        },
+        {
+          "ID": 5207644,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 5207644,
+            "DifficultyName": "Blacky x Panda's Perpetual Reaction",
+            "BPM": 220.0,
+            "Length": 206000.0,
+            "StarRating": 7.34,
+            "EndTimeObjectCount": 601,
+            "TotalObjectCount": 1311,
+            "Metadata": {
+              "Title": "Deklowaz, the Allchemist",
+              "title_unicode": "デクロワゾーの万象",
+              "Artist": "Neighbour's Blueish Garden (NIWASHI+Aoi)",
+              "artist_unicode": "隣の庭は青い(庭師+Aoi)",
+              "Author": {
+                "OnlineID": 11540165,
+                "Username": "Blacky Design",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 8.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.5,
+              "ApproachRate": 9.7,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401472/covers/cover@2x.jpg?1752259238",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401472/covers/card@2x.jpg?1752259238",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401472/covers/list@2x.jpg?1752259238"
+            }
+          }
+        },
+        {
+          "ID": 5208512,
+          "Mods": "HD",
+          "BeatmapInfo": {
+            "OnlineID": 5208512,
+            "DifficultyName": "Fortissimo",
+            "BPM": 162.0,
+            "Length": 235000.0,
+            "StarRating": 7.5,
+            "EndTimeObjectCount": 460,
+            "TotalObjectCount": 1609,
+            "Metadata": {
+              "Title": "Alea jacta est! (xi Remix)",
+              "title_unicode": "Alea jacta est! (xi Remix)",
+              "Artist": "BlackY fused with WAiKURO",
+              "artist_unicode": "BlackY fused with WAiKURO",
+              "Author": {
+                "OnlineID": 6632605,
+                "Username": "Megafan",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.6,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401804/covers/cover@2x.jpg?1752299972",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401804/covers/card@2x.jpg?1752299972",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401804/covers/list@2x.jpg?1752299972"
+            }
+          }
+        },
+        {
+          "ID": 5206435,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 5206435,
+            "DifficultyName": "Dirge",
+            "BPM": 253.0,
+            "Length": 240000.0,
+            "StarRating": 7.2,
+            "EndTimeObjectCount": 459,
+            "TotalObjectCount": 1296,
+            "Metadata": {
+              "Title": "Houkai no Bigaku",
+              "title_unicode": "Houkai no Bigaku",
+              "Artist": "Ariabl'eyeS",
+              "artist_unicode": "Ariabl'eyeS",
+              "Author": {
+                "OnlineID": 4174940,
+                "Username": "Yusomi",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 3.5,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.2,
+              "ApproachRate": 9.7,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401063/covers/cover@2x.jpg?1752321380",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401063/covers/card@2x.jpg?1752321380",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401063/covers/list@2x.jpg?1752321380"
+            }
+          }
+        },
+        {
+          "ID": 5209281,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 5209281,
+            "DifficultyName": "Ex (tournament ver.)",
+            "BPM": 190.0,
+            "Length": 111000.0,
+            "StarRating": 5.94,
+            "EndTimeObjectCount": 276,
+            "TotalObjectCount": 576,
+            "Metadata": {
+              "Title": "Cleopatrysm",
+              "title_unicode": "Cleopatrysm",
+              "Artist": "PyramiD",
+              "artist_unicode": "ピラミッ℃",
+              "Author": {
+                "OnlineID": 8846632,
+                "Username": "Sunazuka Akira",
+                "CountryString": "Unknown"
+              },
+              "Source": "発見！よみがえったBEMANI遺跡",
+              "tags": "nekomata master 96sota fujimori shoccho akhuta camellia clan2025 d2 hr2 day2 china lan 2025",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 7.0,
+              "ApproachRate": 9.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2402037/covers/cover@2x.jpg?1752342849",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2402037/covers/card@2x.jpg?1752342849",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2402037/covers/list@2x.jpg?1752342849"
+            }
+          }
+        },
+        {
+          "ID": 1481149,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 1481149,
+            "DifficultyName": "moph's Expert",
+            "BPM": 157.0,
+            "Length": 119000.0,
+            "StarRating": 6.01,
+            "EndTimeObjectCount": 139,
+            "TotalObjectCount": 700,
+            "Metadata": {
+              "Title": "Daisuke",
+              "title_unicode": "Daisuke",
+              "Artist": "Y&Co.",
+              "artist_unicode": "Y&Co.",
+              "Author": {
+                "OnlineID": 365586,
+                "Username": "kwk",
+                "CountryString": "Unknown"
+              },
+              "Source": "beatmania IIDX 10th style",
+              "tags": "moph saturnalize eurobeat tetsuya tamura beatstream dance evolution arcade jubeat plus qubell",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.5,
+              "CircleSize": 5.5,
+              "OverallDifficulty": 8.5,
+              "ApproachRate": 8.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/697087/covers/cover@2x.jpg?1650656744",
+              "card@2x": "https://assets.ppy.sh/beatmaps/697087/covers/card@2x.jpg?1650656744",
+              "list@2x": "https://assets.ppy.sh/beatmaps/697087/covers/list@2x.jpg?1650656744"
+            }
+          }
+        },
+        {
+          "ID": 5208112,
+          "Mods": "HR",
+          "BeatmapInfo": {
+            "OnlineID": 5208112,
+            "DifficultyName": "Inflorescence",
+            "BPM": 200.0,
+            "Length": 147000.0,
+            "StarRating": 7.01,
+            "EndTimeObjectCount": 338,
+            "TotalObjectCount": 885,
+            "Metadata": {
+              "Title": "Ao to Shiro no Hanataba wo",
+              "title_unicode": "青と白の花束を",
+              "Artist": "Umeboshi Chazuke",
+              "artist_unicode": "梅干茶漬け",
+              "Author": {
+                "OnlineID": 4037545,
+                "Username": "Battle",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "blue white bouquet chiptune electronic instrumental",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 8.8,
+              "ApproachRate": 9.3,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401706/covers/cover@2x.jpg?1752280149",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401706/covers/card@2x.jpg?1752280149",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401706/covers/list@2x.jpg?1752280149"
+            }
+          }
+        },
+        {
+          "ID": 774965,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 774965,
+            "DifficultyName": "Max Control!",
+            "BPM": 165.0,
+            "Length": 301000.0,
+            "StarRating": 5.72,
+            "EndTimeObjectCount": 480,
+            "TotalObjectCount": 1173,
+            "Metadata": {
+              "Title": "Remote Control",
+              "title_unicode": "リモコン",
+              "Artist": "kradness&Reol",
+              "artist_unicode": "kradness＆れをる",
+              "Author": {
+                "OnlineID": 2732340,
+                "Username": "Taeyang",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "jesus-p じーざすp giga official rimokon wonderful*opportunity kagamine rin len glider",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 6.5,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.2,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/351630/covers/cover@2x.jpg?1622092984",
+              "card@2x": "https://assets.ppy.sh/beatmaps/351630/covers/card@2x.jpg?1622092984",
+              "list@2x": "https://assets.ppy.sh/beatmaps/351630/covers/list@2x.jpg?1622092984"
+            }
+          }
+        },
+        {
+          "ID": 5209005,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 5209005,
+            "DifficultyName": "Extra Stage",
+            "BPM": 156.0,
+            "Length": 303000.0,
+            "StarRating": 5.37,
+            "EndTimeObjectCount": 550,
+            "TotalObjectCount": 1648,
+            "Metadata": {
+              "Title": "Bamboo Forest Under the Fullmoon",
+              "title_unicode": "Bamboo Forest Under the Fullmoon",
+              "Artist": "dBu music",
+              "artist_unicode": "dBu music",
+              "Author": {
+                "OnlineID": 4966334,
+                "Username": "DeviousPanda",
+                "CountryString": "Unknown"
+              },
+              "Source": "東方輝針城　～ Double Dealing Character.",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 4.0,
+              "CircleSize": 4.5,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 8.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401950/covers/cover@2x.jpg?1752328854",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401950/covers/card@2x.jpg?1752328854",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401950/covers/list@2x.jpg?1752328854"
+            }
+          }
+        },
+        {
+          "ID": 5208965,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 5208965,
+            "DifficultyName": "Nyanother",
+            "BPM": 190.0,
+            "Length": 197000.0,
+            "StarRating": 5.23,
+            "EndTimeObjectCount": 306,
+            "TotalObjectCount": 1031,
+            "Metadata": {
+              "Title": "Super Nuko World",
+              "title_unicode": "すーぱーぬこわーるど",
+              "Artist": "yuikonnu & ayaponzu*",
+              "artist_unicode": "ゆいこんぬ ＆ あやぽんず＊",
+              "Author": {
+                "OnlineID": 8067876,
+                "Username": "Seolv",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 3.9,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.0,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401938/covers/cover@2x.jpg?1752325845",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401938/covers/card@2x.jpg?1752325845",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401938/covers/list@2x.jpg?1752325845"
+            }
+          }
+        },
+        {
+          "ID": 3771851,
+          "Mods": "DT",
+          "BeatmapInfo": {
+            "OnlineID": 3771851,
+            "DifficultyName": "Air",
+            "BPM": 122.0,
+            "Length": 300000.0,
+            "StarRating": 5.23,
+            "EndTimeObjectCount": 393,
+            "TotalObjectCount": 1141,
+            "Metadata": {
+              "Title": "Tori no Uta",
+              "title_unicode": "鳥の詩",
+              "Artist": "Lia",
+              "artist_unicode": "Lia",
+              "Author": {
+                "OnlineID": 2688581,
+                "Username": "Luscent",
+                "CountryString": "Unknown"
+              },
+              "Source": "AIR",
+              "tags": "key japanese pop garden djulus circle of fifth",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 5.0,
+              "OverallDifficulty": 8.0,
+              "ApproachRate": 8.5,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/1836970/covers/cover@2x.jpg?1725651782",
+              "card@2x": "https://assets.ppy.sh/beatmaps/1836970/covers/card@2x.jpg?1725651782",
+              "list@2x": "https://assets.ppy.sh/beatmaps/1836970/covers/list@2x.jpg?1725651782"
+            }
+          }
+        },
+        {
+          "ID": 5209089,
+          "Mods": "TB",
+          "BeatmapInfo": {
+            "OnlineID": 5209089,
+            "DifficultyName": "Ethereal Override",
+            "BPM": 200.0,
+            "Length": 342000.0,
+            "StarRating": 7.64,
+            "EndTimeObjectCount": 889,
+            "TotalObjectCount": 1904,
+            "Metadata": {
+              "Title": "Akashic Hex",
+              "title_unicode": "Akashic Hex",
+              "Artist": "Halv",
+              "artist_unicode": "Halv",
+              "Author": {
+                "OnlineID": 1499997,
+                "Username": "9ami",
+                "CountryString": "Unknown"
+              },
+              "Source": "",
+              "tags": "",
+              "PreviewTime": -1,
+              "AudioFile": "",
+              "BackgroundFile": ""
+            },
+            "Difficulty": {
+              "DrainRate": 5.0,
+              "CircleSize": 4.0,
+              "OverallDifficulty": 9.0,
+              "ApproachRate": 9.7,
+              "SliderMultiplier": 1.4,
+              "SliderTickRate": 1.0
+            },
+            "Covers": {
+              "cover@2x": "https://assets.ppy.sh/beatmaps/2401984/covers/cover@2x.jpg?1752332217",
+              "card@2x": "https://assets.ppy.sh/beatmaps/2401984/covers/card@2x.jpg?1752332217",
+              "list@2x": "https://assets.ppy.sh/beatmaps/2401984/covers/list@2x.jpg?1752332217"
+            }
+          }
+        }
+      ],
+      "StartDate": "2025-07-13T00:16:01.8230392+00:00",
+      "Matches": []
+    }
+  ],
+  "Teams": [
+    {
+      "FullName": "F2X",
+      "FlagName": "A",
+      "Acronym": "16227745",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "Shiki-Natsume",
+      "FlagName": "B",
+      "Acronym": "6338477",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "Crystal",
+      "FlagName": "16",
+      "Acronym": "1646397",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "970",
+      "FlagName": "D",
+      "Acronym": "4075655",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "SurvivorX4",
+      "FlagName": "E",
+      "Acronym": "12585048",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "stllok",
+      "FlagName": "F",
+      "Acronym": "14817468",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "lolol235",
+      "FlagName": "G",
+      "Acronym": "6090175",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "AbbeyChan6203",
+      "FlagName": "H",
+      "Acronym": "20971891",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "lolol233",
+      "FlagName": "I",
+      "Acronym": "11375105",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "lelxdme",
+      "FlagName": "J",
+      "Acronym": "13795588",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "Ledeau_Fox",
+      "FlagName": "K",
+      "Acronym": "15816872",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "RevengeWolf",
+      "FlagName": "L",
+      "Acronym": "6386735",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "MiMiTooU",
+      "FlagName": "17",
+      "Acronym": "17462509",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "Reisen-Desu",
+      "FlagName": "N",
+      "Acronym": "19577872",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "mcy4",
+      "FlagName": "O",
+      "Acronym": "2165650",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    },
+    {
+      "FullName": "Tokirii",
+      "FlagName": "P",
+      "Acronym": "11563694",
+      "SeedingResults": [],
+      "Seed": "",
+      "LastYearPlacing": 0,
+      "Players": []
+    }
+  ],
+  "Progressions": [],
+  "ChromaKeyWidth": 1024,
+  "PlayersPerTeam": 4,
+  "AutoProgressScreens": true,
+  "SplitMapPoolByMods": true,
+  "DisplayTeamSeeds": false
+}

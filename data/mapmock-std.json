@@ -1,0 +1,67 @@
+[
+    {
+        "criterion": "Invitation from Dreamland",
+        "values": {
+            "mod": "NM",
+            "index": "2"
+        }
+    },
+    {
+        "criterion": "On Seeking U",
+        "values": {
+            "mod": "NM",
+            "index": "3"
+        }
+    },
+    {
+        "criterion": "MONONATI",
+        "values": {
+            "mod": "NM",
+            "index": "4"
+        }
+    },
+    {
+        "criterion": "Free L-Town",
+        "values": {
+            "mod": "NM",
+            "index": "5"
+        }
+    },
+
+    {
+        "criterion": "rezehv",
+        "values": {
+            "mod": "HD",
+            "index": "1"
+        }
+    },
+    {
+        "criterion": "Angel dust",
+        "values": {
+            "mod": "HD",
+            "index": "2"
+        }
+    },
+    {
+        "criterion": "Ten, Sen, Men, Rittai",
+        "values": {
+            "mod": "HD",
+            "index": "4"
+        }
+    },
+    {
+        "criterion": "Worst Regret",
+        "values": {
+            "mod": "HR",
+            "index": "1"
+        }
+    },
+    {
+        "criterion": "God knows",
+        "values": {
+            "mod": "DT",
+            "index": "1"
+        }
+    }
+]
+
