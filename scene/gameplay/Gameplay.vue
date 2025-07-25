@@ -92,6 +92,7 @@ const chat = reactive({
 });
 
 // 比赛轮次按钮状态
+//TODO 读取Bracket
 const roundButtons = reactive({
   'button-match-16': {active: false, text: 'RO16', roundText: 'Round of 16'},
   'button-match-qf': {active: false, text: 'QuaterFinal', roundText: 'QuarterFinals'},
