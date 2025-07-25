@@ -63,7 +63,7 @@ const teamB = reactive({
   scoreLeadValue: 0
 });
 
-// 地图信息
+// 谱面信息
 const mapInfo = reactive({
   title: "",
   diff: "",
@@ -319,7 +319,7 @@ async function updateMapInfo(menu: any) {
     const mods = OsuParser.getModEnumFromModString(parsed.mod);
     parsed.modded = osuParser.getModded(parsed, mods);
 
-    // 更新地图信息
+    // 更新谱面信息
     mapInfo.title = `${parsed.modded.metadata.artist} - ${parsed.modded.metadata.title}`;
     mapInfo.diff = parsed.modded.metadata.diff;
     mapInfo.mapper = parsed.modded.metadata.creator;
@@ -670,7 +670,7 @@ function handleRecordAck() {
       ></iframe>
     </div>
 
-    <!-- 地图信息 -->
+    <!-- 谱面信息 -->
     <div id="map-info-container">
       <img id="map-cover" :src="mapInfo.cover" alt="Map Cover">
 
@@ -764,8 +764,8 @@ function handleRecordAck() {
     </div>
   </div>
 </template>
-
 <style>
+/* 字体声明 */
 @font-face {
   font-family: "YEFONTYSH";
   src: url('../../assets/fonts/YeZiGongChangYunShiHei-2.ttf');
@@ -786,6 +786,28 @@ function handleRecordAck() {
   src: url('../../assets/fonts/Montserrat-BlackItalic.ttf') format('opentype');
 }
 
+/* CSS变量 */
+:root {
+  --team-a-color: #AF3232;
+  --team-b-color: #1D1D1D;
+  --base-text-color: #1D1D1D;
+  --background-color: #363636;
+  --white-color: #FFFFFF;
+  --light-gray: #AFAFAF;
+  --team-a-light: #ea5455;
+  --team-b-light: #32afaf;
+  --control-panel-bg: #363636;
+  --button-inactive-bg: #1d536e;
+  --button-active-bg: #44aadd;
+  --button-active-hover: #64cafd;
+  --button-inactive-hover: #2b617c;
+  --button-text-inactive: #808080;
+  --button-text-active: #FFFFFF;
+  --scrollbar-track: rgba(0, 0, 0, 0.06);
+  --scrollbar-thumb: rgba(0, 0, 0, 0.12);
+}
+
+/* 基础样式 */
 body {
   margin: 0;
   padding: 0;
@@ -797,242 +819,239 @@ body {
   height: calc(2160px + 250px);
 }
 
-#match-name-container {
+/* 比赛信息区域 */
+#match-name-container,
+#match-round-container {
   position: absolute;
-  top: 38px;
   width: 3840px;
-  height: 140px;
   display: flex;
   justify-content: center;
 }
 
+#match-name-container {
+  top: 38px;
+  height: 140px;
+}
+
+#match-round-container {
+  top: 196px;
+  height: 108px;
+}
+
 #match-name {
   font-family: "MontserratBlackItalic", sans-serif;
-  color: #1D1D1D;
+  color: var(--base-text-color);
   font-size: 200px;
   filter: drop-shadow(4.93px 6.30px 0px rgba(0, 0, 0, 0.14));
   line-height: 140px;
 }
 
-#match-round-container {
-  position: absolute;
-  top: 196px;
-  width: 3840px;
-  height: 108px;
-  display: flex;
-  justify-content: center;
-}
-
 #match-round {
   font-family: "MontserratBlackItalic", sans-serif;
-  color: #1D1D1D;
+  color: var(--base-text-color);
   font-size: 108px;
   filter: drop-shadow(4.93px 6.30px 0px rgba(0, 0, 0, 0.14));
   line-height: 108px;
 }
 
-#team-a-container {
-  position: absolute;
-  height: 230px;
-  width: 1920px;
-}
-
-#team-a-name-container {
-  position: absolute;
-  height: 135px;
-}
-
-#team-a-avatar {
-  position: absolute;
-  width: 188px;
-  height: 188px;
-  top: 36px;
-  left: 36px;
-  object-fit: contain;
-  border: solid 7px #AF3232;
-}
-
-#team-a-name {
-  font-family: "AkiraExpanded", sans-serif;
-  font-size: 83px;
-  position: absolute;
-  left: 263px;
-  top: 158px;
-  color: #AF3232;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-#team-a-star-container {
-  position: absolute;
-  left: 262px;
-  top: 36px;
-  display: flex;
-  gap: 22px;
-}
-
-.team-a-star {
-  width: 108px;
-  height: 108px;
-  background-color: #AF3232;
-}
-
-.team-a-star-slot {
-  width: 108px;
-  height: 108px;
-  border: solid 10px #AF3232;
-  box-sizing: border-box;
-}
-
-#team-a-score-bar {
-  position: absolute;
-  top: 1755px;
-  height: 62px;
-  background-color: #AF3232;
-  transition: width 0.5s;
-}
-
-#team-a-score {
-  position: absolute;
-  left: 32px;
-  top: 1755px;
-  font-size: 50px;
-  color: #ffffff;
-  font-family: 'YEFONTYSH', sans-serif;
-}
-
-#team-a-score-lead {
-  position: absolute;
-  right: 20px;
-  text-align: left;
-  font-size: 31px;
-  color: #ffffff;
-  font-family: 'YEFONTYSH', sans-serif;
-  transform: translateY(-50%);
-  top: 50%;
-}
-
-#team-b-score-lead {
-  position: absolute;
-  left: 20px;
-  text-align: right;
-  font-size: 31px;
-  color: #ffffff;
-  font-family: 'YEFONTYSH', sans-serif;
-  transform: translateY(-50%);
-  top: 50%;
-}
-
+/* 队伍容器通用样式 */
+#team-a-container,
 #team-b-container {
   position: absolute;
   height: 230px;
   width: 1920px;
+}
+
+#team-b-container {
   right: 0;
 }
 
+#team-a-name-container,
 #team-b-name-container {
   position: absolute;
-  right: 0;
   height: 135px;
 }
 
-#team-b-star-container {
+#team-b-name-container {
+  right: 0;
+}
+
+/* 队伍头像样式 */
+#team-a-avatar,
+#team-b-avatar {
   position: absolute;
-  right: 262px;
+  width: 188px;
+  height: 188px;
   top: 36px;
-  display: flex;
-  gap: 22px;
+  object-fit: contain;
+  border-width: 7px;
+  border-style: solid;
 }
 
-.team-b-star {
-  width: 108px;
-  height: 108px;
-  background-color: #1D1D1D;
-}
-
-.team-b-star-slot {
-  width: 108px;
-  height: 108px;
-  border: solid 10px #1D1D1D;
-  box-sizing: border-box;
+#team-a-avatar {
+  left: 36px;
+  border-color: var(--team-a-color);
 }
 
 #team-b-avatar {
-  position: absolute;
   right: 36px;
-  top: 36px;
-  width: 188px;
-  height: 188px;
-  object-fit: contain;
-  border: solid 7px #1D1D1D;
+  border-color: var(--team-b-color);
 }
 
+/* 队伍名称样式 */
+#team-a-name,
 #team-b-name {
   font-family: "AkiraExpanded", sans-serif;
   font-size: 83px;
   position: absolute;
-  right: 263px;
   top: 158px;
-  color: #1D1D1D;
-  text-align: right;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+#team-a-name {
+  left: 263px;
+  color: var(--team-a-color);
+}
+
+#team-b-name {
+  right: 263px;
+  color: var(--team-b-color);
+  text-align: right;
+}
+
+/* 比分容器样式 */
+#team-a-star-container,
+#team-b-star-container {
+  position: absolute;
+  top: 36px;
+  display: flex;
+  gap: 22px;
+}
+
+#team-a-star-container {
+  left: 262px;
+}
+
+#team-b-star-container {
+  right: 262px;
+}
+
+/* 比分样式 */
+.team-a-star,
+.team-b-star {
+  width: 108px;
+  height: 108px;
+}
+
+.team-a-star {
+  background-color: var(--team-a-color);
+}
+
+.team-b-star {
+  background-color: var(--team-b-color);
+}
+
+.team-a-star-slot,
+.team-b-star-slot {
+  width: 108px;
+  height: 108px;
+  border-width: 10px;
+  border-style: solid;
+  box-sizing: border-box;
+}
+
+.team-a-star-slot {
+  border-color: var(--team-a-color);
+}
+
+.team-b-star-slot {
+  border-color: var(--team-b-color);
+}
+
+/* 分数条样式 */
+#team-a-score-bar,
 #team-b-score-bar {
   position: absolute;
   top: 1755px;
-  right: 0;
   height: 62px;
-  background-color: #1D1D1D;
   transition: width 0.5s;
 }
 
+#team-a-score-bar {
+  background-color: var(--team-a-color);
+}
+
+#team-b-score-bar {
+  right: 0;
+  background-color: var(--team-b-color);
+}
+
+/* 分数文字样式 */
+#team-a-score,
 #team-b-score {
   position: absolute;
-  right: 32px;
   top: 1755px;
-  text-align: right;
   font-size: 50px;
-  color: #ffffff;
+  color: var(--white-color);
   font-family: 'YEFONTYSH', sans-serif;
 }
 
-@keyframes wordsLoop {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+#team-a-score {
+  left: 32px;
 }
 
-/* 聊天框的渐变 */
-#chat {
+#team-b-score {
+  right: 32px;
+  text-align: right;
+}
+
+/* 领先分数显示 */
+#team-a-score-lead,
+#team-b-score-lead {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 31px;
+  color: var(--white-color);
+  font-family: 'YEFONTYSH', sans-serif;
+}
+
+#team-a-score-lead {
+  right: 20px;
+  text-align: left;
+}
+
+#team-b-score-lead {
+  left: 20px;
+  text-align: right;
+}
+
+/* 聊天和弹幕区域 */
+#chat,
+#danmaku {
   position: absolute;
   width: 825px;
-  height: 255px;
   top: 1905px;
   left: 2400px;
+}
+
+#chat {
+  height: 253px;
   transition: opacity 0.5s ease;
 }
 
 #danmaku {
-  position: absolute;
-  width: 825px;
   height: 253px;
-  top: 1905px;
-  left: 2400px;
   overflow: hidden;
 }
 
 #danmaku-iframe {
-  transform: scale(2, 2);
+  transform: scale(2);
+  transform-origin: left top;
   width: 50%;
   height: 50%;
-  transform-origin: left top;
   border: none;
 }
 
@@ -1045,7 +1064,7 @@ body {
   box-sizing: border-box;
 }
 
-/* 滚动槽 */
+/* 滚动条样式 */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -1053,42 +1072,44 @@ body {
 
 ::-webkit-scrollbar-track {
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.06);
+  background: var(--scrollbar-track);
   -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
 }
 
-/* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.12);
+  background: var(--scrollbar-thumb);
   -webkit-box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+/* 聊天内容样式 */
 #chat-content p {
   font-family: YEFONTYSH, sans-serif;
   font-size: 33px;
-  margin: 0px;
-  color: #1D1D1D;
+  margin: 0;
+  color: var(--base-text-color);
   white-space: normal;
   overflow-wrap: break-word;
 }
 
+/* 聊天样式类 */
 .time {
-  color: #1D1D1D;
+  color: var(--base-text-color);
 }
 
 .player-a-name-chat {
-  color: #ea5455;
+  color: var(--team-a-light);
 }
 
 .unknown-chat {
-  color: #AFAFAF;
+  color: var(--light-gray);
 }
 
 .player-b-name-chat {
-  color: #32afaf;
+  color: var(--team-b-light);
 }
 
+/* 谱面信息区域 */
 #map-info-container {
   position: absolute;
   top: 1817px;
@@ -1110,7 +1131,7 @@ body {
 #map-picker {
   font-family: MontserratBlack, sans-serif;
   font-size: 38px;
-  color: #ffffff;
+  color: var(--white-color);
 }
 
 #map-cover {
@@ -1124,44 +1145,40 @@ body {
   overflow: hidden;
 }
 
-#map-diff {
+/* 谱面详细信息 */
+#map-diff,
+#map-mapper-label,
+#map-mapper {
   position: absolute;
-  width: 940px;
   font-family: MontserratBlack, sans-serif;
   font-size: 50px;
-  color: #1D1D1D;
   left: 1460px;
-  top: 88px;
   white-space: nowrap;
-  text-overflow: ellipsis;
   line-height: 1;
+}
+
+#map-diff {
+  width: 940px;
+  color: var(--base-text-color);
+  top: 88px;
+  text-overflow: ellipsis;
 }
 
 #map-mapper-label {
-  position: absolute;
   width: 310px;
-  font-family: MontserratBlack, sans-serif;
-  font-size: 50px;
-  color: #1D1D1D;
-  left: 1460px;
+  color: var(--base-text-color);
   top: 142px;
-  white-space: nowrap;
-  line-height: 1;
 }
 
 #map-mapper {
-  position: absolute;
   width: 622px;
-  font-family: MontserratBlack, sans-serif;
-  font-size: 50px;
-  color: #AF3232;
+  color: var(--team-a-color);
   left: 1778px;
   top: 142px;
-  white-space: nowrap;
   text-overflow: ellipsis;
-  line-height: 1;
 }
 
+/* 谱面标题滚动 */
 #map-title-scroll-container {
   width: 1764px;
   left: 1460px;
@@ -1179,7 +1196,7 @@ body {
 .map-title {
   overflow: hidden;
   white-space: nowrap;
-  color: #1D1D1D;
+  color: var(--base-text-color);
   font-family: MontserratBlack, sans-serif;
   font-size: 75px;
   width: max-content;
@@ -1189,15 +1206,7 @@ body {
   line-height: 1;
 }
 
-@keyframes scrollText {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
+/* 谱面数据容器 */
 #map-data-container {
   position: absolute;
   top: 239px;
@@ -1205,23 +1214,25 @@ body {
   width: 832px;
 }
 
-.map-data-text {
-  color: #AF3232;
+.map-data-text,
+.map-data-label {
   font-size: 50px;
   font-family: MontserratBlack, sans-serif;
-  padding-right: 10px;
   line-height: 1;
+}
+
+.map-data-text {
+  color: var(--team-a-color);
+  padding-right: 10px;
 }
 
 .map-data-label {
-  color: #1D1D1D;
-  font-size: 50px;
-  font-family: MontserratBlack, sans-serif;
-  line-height: 1;
+  color: var(--base-text-color);
 }
 
+/* 控制面板 */
 .control-panel {
-  background: #363636;
+  background: var(--control-panel-bg);
   width: 3840px;
   height: 250px;
   position: absolute;
@@ -1231,7 +1242,7 @@ body {
 .panel-title {
   font-family: 'TorusNotched-Regular', sans-serif;
   font-size: 30px;
-  color: #FFFFFF;
+  color: var(--white-color);
   position: absolute;
   top: 3px;
   left: 10px;
@@ -1244,39 +1255,37 @@ body {
 .panel-label {
   font-family: 'TorusNotched-Regular', sans-serif;
   font-size: 25px;
-  color: #FFFFFF;
+  color: var(--white-color);
+}
+
+/* 按钮样式 */
+.button-inactive,
+.button-active {
+  border-radius: 8px;
+  width: 100px;
+  height: 48px;
+  font-family: 'TorusNotched-Regular', sans-serif;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
 }
 
 .button-inactive {
-  background-color: #1d536e;
-  border-radius: 8px;
-  width: 100px;
-  height: 48px;
-  font-family: 'TorusNotched-Regular', sans-serif;
-  font-size: 20px;
-  color: #808080;
-  border: none;
-  cursor: pointer;
+  background-color: var(--button-inactive-bg);
+  color: var(--button-text-inactive);
 }
 
 .button-active {
-  background-color: #44aadd;
-  border-radius: 8px;
-  width: 100px;
-  height: 48px;
-  font-family: 'TorusNotched-Regular', sans-serif;
-  font-size: 20px;
-  color: #FFFFFF;
-  border: none;
-  cursor: pointer;
+  background-color: var(--button-active-bg);
+  color: var(--button-text-active);
 }
 
 .button-active:hover {
-  background-color: #64cafd;
+  background-color: var(--button-active-hover);
 }
 
 .button-inactive:hover {
-  background-color: #2b617c;
+  background-color: var(--button-inactive-hover);
 }
 
 .round-control {
@@ -1292,6 +1301,7 @@ body {
   gap: 20px;
 }
 
+/* 背景视频 */
 #background-video {
   z-index: -100;
   position: fixed;
@@ -1307,5 +1317,15 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+}
+
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 </style>
