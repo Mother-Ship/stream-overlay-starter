@@ -205,7 +205,13 @@ function initCountUpInstances() {
     mapBpm: new CountUp('map-bpm', 0, {duration: 0.5}),
     mapStar: new CountUp('map-star', 0, {duration: 0.5, decimalPlaces: 2, suffix: '*'}),
     teamAScoreLead: new CountUp('team-a-score-lead', 0, {duration: 0.5, useGrouping: true}),
-    teamBScoreLead: new CountUp('team-b-score-lead', 0, {duration: 0.5, useGrouping: true})
+    teamBScoreLead: new CountUp('team-b-score-lead', 0, {duration: 0.5, useGrouping: true}),
+    mapLengthMinutes: new CountUp('map-length-minutes', 0, {duration: 0.5,
+      formattingFn: (x: number) => x.toString().padStart(2, "0"),
+    }),
+    mapLengthSeconds: new CountUp('map-length-seconds', 0, {duration: 0.5,
+      formattingFn: (x: number) => x.toString().padStart(2, "0"),
+    }),
   };
 }
 
@@ -294,6 +300,7 @@ async function updateMapInfo(menu: any) {
     parsed.modded = osuParser.getModded(parsed, mods);
 
     // 更新地图信息
+    //TODO 检查标题去哪了
     mapInfo.title = `${parsed.modded.metadata.artist} - ${parsed.modded.metadata.title}`;
     mapInfo.diff = parsed.modded.metadata.diff;
     mapInfo.mapper = parsed.modded.metadata.creator;
@@ -305,6 +312,8 @@ async function updateMapInfo(menu: any) {
     countUpInstances.mapHp.update(parseFloat(parsed.modded.difficulty.hp).toFixed(1));
     countUpInstances.mapBpm.update(parsed.modded.beatmap.bpm.mostly);
     countUpInstances.mapStar.update(parseFloat(parsed.modded.difficulty.sr).toFixed(2));
+    countUpInstances.mapLengthMinutes.update(Math.trunc(parsed.modded.beatmap.length / 60000));
+    countUpInstances.mapLengthSeconds.update(Math.trunc(parsed.modded.beatmap.length % 60000 / 1000));
   }
 }
 
@@ -645,7 +654,8 @@ function handleRecordAck() {
           <osu-parser
             id="map-title"
             :class="{ 'map-title': true, 'marquee': mapInfo.needsScrolling }"
-          >{{ mapInfo.title }}</osu-parser>
+          >{{ mapInfo.title }}
+          </osu-parser>
         </div>
       </div>
 
@@ -728,11 +738,6 @@ function handleRecordAck() {
 
 <style scoped>
 @font-face {
-  font-family: "HYXingHeJianDui";
-  src: url('../../assets/fonts/HYXingHeJianDui-105U-2.ttf');
-}
-
-@font-face {
   font-family: "YEFONTYSH";
   src: url('../../assets/fonts/YeZiGongChangYunShiHei-2.ttf');
 }
@@ -750,11 +755,6 @@ function handleRecordAck() {
 @font-face {
   font-family: 'MontserratBlackItalic';
   src: url('../../assets/fonts/Montserrat-BlackItalic.ttf') format('opentype');
-}
-
-@font-face {
-  font-family: 'DouyinSansBold.ttf';
-  src: url('../../assets/fonts/DouyinSansBold.ttf') format('opentype');
 }
 
 body {

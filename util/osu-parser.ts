@@ -1,5 +1,5 @@
 // @ts-ignore
-import calculate_sr from '../lib/rosu-pp/rosu-pp.js';
+import {calculate_sr} from '../lib/rosu-pp/rosu-pp.js';
 
 import {
   type OsuFileBeatmapBackground,
@@ -13,7 +13,7 @@ class OsuParser {
     this.wasmReady = true;
   }
 
-  DEBUG = true;
+  DEBUG_LOG = false;
   wasmReady = false;
 
   async getBidToHrefMap(bidDifficultyMap: Map<number, Array<{
@@ -310,7 +310,7 @@ class OsuParser {
       mod: 'Unknown',
     }
 
-    if (this.DEBUG)
+    if (this.DEBUG_LOG)
       console.log(`[osuFileParser] Parsed Beamap:\n${JSON.stringify(bm)}`);
 
     return bm;
@@ -343,7 +343,7 @@ class OsuParser {
       mod: bm.mod,
     }
 
-    if (this.DEBUG)
+    if (this.DEBUG_LOG)
       console.log(`[osuFileParser] Beatmap with mod ${mods}:\n${JSON.stringify(modded)}`);
 
     return modded;
@@ -456,7 +456,7 @@ class OsuParser {
     if (bpm.max === bpm.min) {
       bpm.mostly = bpm.max;
     } else {
-      if (this.DEBUG) {
+      if (this.DEBUG_LOG) {
         console.log(`bpm list: ${JSON.stringify(bpmList)}`);
       }
       bpm.mostly = Number(Object.keys(bpmList).reduce((a, b) => bpmList[a] > bpmList[b] ? a : b));
@@ -476,7 +476,7 @@ class OsuParser {
     // I decide it's better to be coherent with in-game length.
     let first = Number(content.timings?.[0]?.[0] ?? 0) || 0,
       last = this.lastObjectIsSpinner(content) ? Number(content.objs?.[content.objs.length - 1]?.[5] ?? 0) : Number(content.objs?.[content.objs.length - 1]?.[2] ?? 0);
-    if (this.DEBUG) console.log(`[osuFileParser] Timing point begin at ${first}, hit objects end at ${last}, isSpinner=${this.lastObjectIsSpinner(content)}, total time ${last}`);
+    if (this.DEBUG_LOG) console.log(`[osuFileParser] Timing point begin at ${first}, hit objects end at ${last}, isSpinner=${this.lastObjectIsSpinner(content)}, total time ${last}`);
     return last;
   };
 
@@ -491,7 +491,7 @@ class OsuParser {
     // Due to the inconsistency explained above, drain time becomes a little complicated.
     let spinnerLengthIfLastObjectIsSpinner = this.lastObjectIsSpinner(content) ? Number(content.objs?.[content.objs.length - 1]?.[5] ?? 0) - Number(content.objs?.[content.objs.length - 1]?.[2] ?? 0) : 0;
 
-    if (this.DEBUG) console.log(`[osuFileParser] total break time length: ${breakLength}, last spinner length: ${spinnerLengthIfLastObjectIsSpinner}`);
+    if (this.DEBUG_LOG) console.log(`[osuFileParser] total break time length: ${breakLength}, last spinner length: ${spinnerLengthIfLastObjectIsSpinner}`);
 
     return this.getTotalTime(content) - breakLength - Number(content.objs?.[0]?.[2] ?? 0) - spinnerLengthIfLastObjectIsSpinner;
   };
