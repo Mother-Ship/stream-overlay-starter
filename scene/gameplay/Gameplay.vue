@@ -300,7 +300,6 @@ async function updateMapInfo(menu: any) {
     parsed.modded = osuParser.getModded(parsed, mods);
 
     // 更新地图信息
-    //TODO 检查标题去哪了
     mapInfo.title = `${parsed.modded.metadata.artist} - ${parsed.modded.metadata.title}`;
     mapInfo.diff = parsed.modded.metadata.diff;
     mapInfo.mapper = parsed.modded.metadata.creator;
@@ -390,6 +389,7 @@ function updateScores(tourney: any) {
 
     // 计算分数条宽度
     const scoreDiff = Math.abs(leftScore - rightScore);
+    // 抄袭Lazer，随scoreDiff从0增大到100w，X从0先陡再缓慢增大到0.4
     const X = Math.min(0.4, Math.pow(scoreDiff / 1500000, 0.5) / 2);
     const Y = 2.5 * X;
     const shortBarWidth = 1920 - (1920 - 615) * Y;
@@ -485,6 +485,7 @@ function scrollChatToBottom() {
 
 function checkObsRecording() {
   // @ts-ignore
+  //TODO 非OBS窗口 OK按钮也去掉
   if (window.obsstudio) {
     console.log('OBS Browser Source detected, version:', (window as any).obsstudio.pluginVersion);
     (window as any).obsstudio.getControlLevel((level: number) => {
@@ -558,9 +559,10 @@ function handleRecordAck() {
 <template>
   <div class="container">
     <!-- 背景视频 -->
+<!--    TODO 视频开关和路径配置在.env-->
     <div id="background-video">
       <video autoplay muted loop id="bg-video">
-        <source src="../../assets/CL_loop_1_compressed.mp4" type="video/mp4">
+        <source src="../../assets/video/CL_loop_1_compressed.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
@@ -632,13 +634,18 @@ function handleRecordAck() {
     </div>
 
     <!-- 聊天框 -->
+    <!--TODO 聊天HTML未正确生成-->
     <div id="chat" :style="{ opacity: chat.visible ? 1 : 0 }">
       <div id="chat-content" v-html="chatMessagesHtml"></div>
     </div>
 
     <!-- 弹幕 -->
+    <!--TODO 4模式弹幕地址分别配置在env-->
     <div id="danmaku">
-      <!-- 弹幕iframe可以在这里添加 -->
+      <iframe id="danmaku-iframe"
+              allowTransparency="true"
+              src="https://vercel.blive.chat/room/BQVLQJXMWFEO8?roomKeyType=2&lang=zh&templateUrl=http%3A%2F%2F127.0.0.1%3A24050%2Fclan2025%2Flib%2Fdanmaku_template%2Fyoutube%2Findex.html"
+      ></iframe>
     </div>
 
     <!-- 地图信息 -->
@@ -651,11 +658,11 @@ function handleRecordAck() {
 
       <div id="map-title-scroll-container" class="scroll-container">
         <div id="map-title-scrolling-content">
-          <osu-parser
+          <p
             id="map-title"
             :class="{ 'map-title': true, 'marquee': mapInfo.needsScrolling }"
           >{{ mapInfo.title }}
-          </osu-parser>
+          </p>
         </div>
       </div>
 
